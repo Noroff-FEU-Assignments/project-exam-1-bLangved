@@ -1,0 +1,279 @@
+/* --- GLOBAL --- */
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  height: 3em;
+  width: 9em;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(254, 245, 232);
+}
+
+@media only screen and (max-width: 1199px) {
+  aside {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "main main aside"
+      "footer footer footer";
+  }
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  aside {
+    grid-area: aside;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
+
+/* --- HEADER --- */
+header {
+  background: #f29e38;
+}
+
+.headingContainer_header {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 1em;
+  padding-top: 2em;
+}
+
+.heading_header {
+  font-size: 4rem;
+}
+
+.subheading_header {
+  font-size: 2rem;
+}
+
+.logo_header {
+  background: url(/IMAGES/beader/website_logo.png) no-repeat;
+  background-size: contain;
+  height: 4em;
+  width: 4em;
+}
+
+/* --- NAVIGATION HEADER --- */
+
+.ul_header {
+  display: flex;
+  background-color: #d97f30;
+  justify-content: center;
+  font-size: 1.5rem;
+  gap: 2em;
+  padding: 0.5em;
+}
+
+.ul_header li:last-child {
+  /* margin-left: auto; */
+}
+
+.li_header a {
+  position: relative;
+  color: rgb(0, 0, 0);
+}
+
+.li_header a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(0, 0, 0);
+  transition: width 0.3s ease;
+}
+
+.li_header a:hover::before {
+  width: 100%;
+}
+.li_header a:hover {
+  transition: 0.3s ease;
+  color: #f9d5aa;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #ac8d67;
+  height: 10em;
+}
+
+.bottomSection_footer {
+  background: #60503d;
+  color: rgb(220, 220, 220);
+}
+.bottomSection_footer h3 {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+/* --- ASIDE --- */
+
+aside {
+  margin: 5em 0 0 0;
+  border: 1px solid green;
+}
+
+.categories-section_aside {
+  margin: 0 0 0 10em;
+  width: 30em;
+}
+
+.categories-section_aside h2 {
+  background-color: #d9b88f;
+  padding: 0.5em;
+  color: white;
+}
+
+.ul-categories_aside {
+  font-size: 1.25rem;
+}
+
+.ul-categories_aside li {
+  padding-bottom: 1em;
+}
+
+.ul-categories_aside li hr {
+  opacity: 0.5;
+}
+
+/* --- Blog containers --- */
+
+main {
+  /* border: 1px solid red; */
+}
+
+.blogContainer_index {
+  display: block;
+  margin-top: 5em;
+  /* border: 1px solid black; */
+}
+
+.blogPostContainer {
+  height: fit-content;
+  width: 50em;
+  margin: 0 auto 2em auto;
+  /* border: 1px solid black; */
+  padding: 1em 1em 0 1em; /* small gap at bottom. not sure why. fixed with this, since I wanted padding either way */
+}
+
+.blogPostContainer:hover {
+  transition: 0.1s ease-in;
+  box-shadow: 1px 1px 5px black;
+  background-color: rgb(243, 232, 218);
+}
+
+.blogPostTitle {
+  font-size: 1.5rem;
+  margin: 0.5em 0 0 0;
+  /* text-decoration: underline; */
+}
+
+.blogPostSubHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+}
+
+.blogPostAuthor {
+}
+
+.blogPostDate {
+  margin: 0 0 0 auto;
+}
+
+.blogPostImage {
+  height: 10em;
+  width: 100%;
+  opacity: 0.75;
+}
+
+.blogPostCategories {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+
+.blogPostCategory:hover {
+  transition: 0.1s ease-in;
+  text-decoration: underline 1px;
+  font-size: 1.1rem;
+}
+
+/* --- BLOG SPECIFIC PAGE --- */
+
+/* Aside is hidden on blog specific page, so page structure is different */
+.body_blogSpecific {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+.aside_blogSpecific {
+  display: none;
+}
+/* --- */
+
+.blogContainer_blogSpecific {
+  width: 80em;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.postTitle_blogSpecific {
+  font-size: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.postSubheader_blogSpecific {
+  display: flex;
+  width: fit-content;
+  gap: 2em;
+  margin: 0 auto;
+}
+
+.postImage_blogSpecific {
+  width: 100%;
+  height: 30em;
+}
+
+.paragraph_blogSpecific {
+  padding: 0;
+  margin: 0;
+}
+
+.postCategories_blogSpecific {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+}
