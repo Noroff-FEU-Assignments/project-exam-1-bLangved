@@ -50,24 +50,17 @@ export function createBlogPost(result){
     topImage.append(imageUrl)
     
     postContainer.append(topImage);
-    
-
-
-    /* Content summary / excerpt */
-    // const contentSummary = document.createElement("p");
-    // contentSummary.classList.add("postContentSummary__blogSpecific");
-    // contentSummary.innerText = result.excerpt.rendered.replace(/<\/?p>/g, "");
-    // postContainer.append(contentSummary);
-    
 
 
     /* Description / paragraph */
     const paragraph = document.createElement("p");
     paragraph.classList.add("paragraph_blogSpecific");
 
-    const content = result.content.rendered.replace(/<figure.*?<\/figure>/gs, "")
-    .replace(/<\/?p>/g, "").replace(/(<br\s*\/?>){4,}/g, "<br>");
-    
+    const content = result.content.rendered
+    .replace(/<figure.*?<\/figure>/gs, "")
+    .replace(/<\/?p>/g, "")
+    .replace(/(<br\s*\/?>){4,}/g, "<br>");
+
     /* When <br>-tags are "detected" in the content-text from wordpress, create <br>-tags in between the textNode created below */
     const contentArray = content.split("<br>");
 
@@ -80,10 +73,9 @@ export function createBlogPost(result){
         paragraph.append(brElement);
       }
     }
-    
-
     postContainer.append(paragraph);    
 
+    
     
     /* Categories */
     const categoriesContainer = document.createElement("div");

@@ -60,9 +60,15 @@ header {
 .headingContainer_header {
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   gap: 1em;
-  padding-top: 2em;
+  padding: 1em;
+}
+
+.headingWrapper_header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
 }
 
 .heading_header {
@@ -76,75 +82,134 @@ header {
 .logo_header {
   background: url(/IMAGES/beader/website_logo.png) no-repeat;
   background-size: contain;
-  height: 4em;
-  width: 4em;
+  height: 3.5em;
+  width: 3.5em;
 }
 
 /* --- NAVIGATION HEADER --- */
 
-.ul_header {
-  display: flex;
-  background-color: #d97f30;
-  justify-content: center;
-  font-size: 1.5rem;
-  gap: 2em;
-  padding: 0.5em;
+/* - MOBILE NAV - */
+@media only screen and (max-width: 1199px) {
+  .nav_header_desktop {
+    display: none;
+  }
+
+  .headingWrapper_header {
+    margin-right: auto;
+  }
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 4em;
+    width: 4em;
+    margin-right: auto;
+    background: #f29e38;
+  }
+
+  .menu-icon .icon-bar {
+    display: block;
+    width: 2.5em;
+    height: 3px;
+    margin: 3px 0;
+    background-color: black;
+  }
+
+  .heading_header {
+    font-size: 2rem;
+  }
+
+  .subheading_header {
+    font-size: 1rem;
+  }
+
+  .logo_header {
+    height: 2.5em;
+    width: 2.5em;
+  }
+
+  .nav_header_mobile {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .nav_header_mobile.nav-open {
+    display: block;
+    opacity: 1;
+  }
+
+  .ul_header_mobile {
+    font-size: 1.25rem;
+  }
+
+  .li_header_mobile {
+    padding: 0 0 1em 1em;
+  }
 }
 
-.ul_header li:last-child {
-  /* margin-left: auto; */
+/* - DESKTOP NAV - */
+@media only screen and (min-width: 1199px) {
+  .menu-icon {
+    display: none;
+  }
+  .nav_header_mobile {
+    display: none;
+  }
+
+  .ul_header_desktop {
+    display: flex;
+    background-color: #d97f30;
+    justify-content: center;
+    font-size: 1.5rem;
+    gap: 2em;
+    padding: 0.5em;
+    margin: 0;
+  }
+
+  .li_header_desktop a {
+    position: relative;
+    color: rgb(0, 0, 0);
+  }
+
+  .li_header_desktop a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    transition: width 0.3s ease;
+  }
+
+  .li_header_desktop a:hover::before {
+    width: 100%;
+  }
+  .li_header_desktop a:hover {
+    transition: 0.3s ease;
+    color: #f9d5aa;
+  }
 }
 
-.li_header a {
-  position: relative;
-  color: rgb(0, 0, 0);
-}
+/* --- MAIN --- */
 
-.li_header a::before {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: rgb(0, 0, 0);
-  transition: width 0.3s ease;
-}
-
-.li_header a:hover::before {
-  width: 100%;
-}
-.li_header a:hover {
-  transition: 0.3s ease;
-  color: #f9d5aa;
-}
-
-/* --- FOOTER --- */
-footer {
-  background: #ac8d67;
-  height: 10em;
-}
-
-.bottomSection_footer {
-  background: #60503d;
-  color: rgb(220, 220, 220);
-}
-.bottomSection_footer h3 {
-  display: flex;
-  justify-content: center;
-  padding: 1em;
+main {
 }
 
 /* --- ASIDE --- */
 
 aside {
   margin: 5em 0 0 0;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .categories-section_aside {
-  margin: 0 0 0 10em;
-  width: 30em;
+  /* margin: 0 0 0 10em; */
+  width: 20em;
 }
 
 .categories-section_aside h2 {
@@ -165,16 +230,27 @@ aside {
   opacity: 0.5;
 }
 
-/* --- Blog containers --- */
-
-main {
-  /* border: 1px solid red; */
+/* --- FOOTER --- */
+footer {
+  background: #ac8d67;
+  height: 10em;
 }
+
+.bottomSection_footer {
+  background: #60503d;
+  color: rgb(220, 220, 220);
+}
+.bottomSection_footer h3 {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+/* --- Blog containers --- */
 
 .blogContainer_index {
   display: block;
   margin-top: 5em;
-  /* border: 1px solid black; */
 }
 
 .blogPostContainer {
@@ -228,6 +304,20 @@ main {
   font-size: 1.1rem;
 }
 
+@media only screen and (max-width: 1199px) {
+  .blogContainer_index {
+    margin-top: 2.5em;
+  }
+
+  .blogPostContainer {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .blogPostContentSummary {
+    font-size: 0.75rem;
+  }
+}
+
 /* --- BLOG SPECIFIC PAGE --- */
 
 /* Aside is hidden on blog specific page, so page structure is different */
@@ -276,4 +366,10 @@ main {
   display: flex;
   align-items: baseline;
   gap: 1em;
+}
+
+.postCategory_blogSpecific:hover {
+  transition: 0.1s ease-in;
+  text-decoration: underline 1px;
+  font-size: 1.1rem;
 }
