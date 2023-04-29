@@ -14,19 +14,31 @@
 
     <header>
         <div class="headingContainer_header">
-            <div class="heading_header">Guitarlicious</div>
-            <div class="subheading_header">A blog about guitars</div>
-            <div class="logo_header"></div>
+            <button class="menu-icon" aria-label="Mobile Menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="headingWrapper_header">
+                <div class="heading_header">Guitarlicious</div>
+                <div class="subheading_header">A blog about guitars</div>
+                <div class="logo_header"></div>
+            </div>
         </div>
-        <nav class="nav_header">
-            <ul class="ul_header">
-                <li class="li_header"><a href="index.html">Home</a></li>
-                <li class="li_header"><a href="blog.html">Posts</a></li>
-                <li class="li_header"><a href="contact.html">Contact</a></li>
-                <li class="li_header"><a href="about.html">About</a></li>
-                <li>
-                    <div>Searchbar</div>
-                </li>
+        <nav class="nav_header_desktop">
+            <ul class="ul_header_desktop">
+                <li class="li_header_desktop"><a href="index.html">Home</a></li>
+                <li class="li_header_desktop"><a href="blog.html">Posts</a></li>
+                <li class="li_header_desktop"><a href="contact.html">Contact</a></li>
+                <li class="li_header_desktop"><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <nav class="nav_header_mobile">
+            <ul class="ul_header_mobile">
+                <li class="li_header_mobile"><a href="index.html">Home</a></li>
+                <li class="li_header_mobile"><a href="blog.html">Posts</a></li>
+                <li class="li_header_mobile"><a href="contact.html">Contact</a></li>
+                <li class="li_header_mobile"><a href="about.html">About</a></li>
             </ul>
         </nav>
     </header>
@@ -53,7 +65,7 @@
         </div>
     </footer>
 
-
+    <script src="JS/components/hamburgerMenu.js" defer></script>
     <script type="module" src="JS/blogSpecific.js"></script>
 </body>
 
