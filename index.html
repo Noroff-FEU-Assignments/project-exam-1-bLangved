@@ -70,19 +70,44 @@
                 <li><a href="">Amplifiers</a></li>
             </ul>
         </section>
+
+        <section class="calendarContainer">
+            <h3>Search posts by date</h3>
+            <div class="calendarHeader">
+                <div>
+                    <div>Month</div>
+                    <div>Year</div>
+                </div>
+                <div>
+                    <div>Left</div>
+                    <div>Right</div>
+                </div>
+            </div>
+            <div class="calendar_aside" id="calendar"></div>
+            <div id="posts"></div>
+        </section>
     </aside>
 
     <footer>
 
-        <section>
-            <h2>Most read last 7 days</h2>
-            <div class="blogPostsContainer_footer"></div>
+        <section class="newsletter_footer">
+            <h2>NEVER MISS A BEAT</h2>
+            <p>Stay in tune with the latest updates on Guitarlicious by signing up for our newsletter. <br> Never miss a
+                post about guitars, gadgets, and all things music-related.</p>
+            <form class="newsletterForm_footer">
+                <label for="email">Your email:</label>
+                <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
+                <button type="submit">Sign up</button>
+            </form>
         </section>
+
         <div class="bottomSection_footer">
             <h3>The website is operated by ©bhlweb.no</h3>
         </div>
+
     </footer>
 
+    <script src="/JS/components/calendar.js" defer></script>
     <script src="JS/components/hamburgerMenu.js" defer></script>
     <script type="module" src="JS/script.js"></script>
 </body>

@@ -20,6 +20,19 @@ const successSection = document.querySelector(".formSucsess_contact");
 const submitButton = document.querySelector(".submitBtn-form_contact");
 
 
+
+const outlineStylesSucsess = {
+    outlineColor: "green",
+    outlineStyle: "solid",
+    outlineWidth: "2px"
+};
+  const outlineStylesError = {
+    outlineColor: "red",
+    outlineStyle: "solid",
+    outlineWidth: "2px"
+};
+
+
 const requiredFields = [name, email, subject, message];
 
 function validateForm() {
@@ -32,12 +45,14 @@ function validateForm() {
     if(checkLength(name.value, 5) === true) {
         nameError.style.display = "none";
         nameSucsess.style.display = "block";
+        Object.assign(name.style, outlineStylesSucsess);
     }
     else{
         if(name.targeted){
             nameError.style.display = "block";
         }
         nameSucsess.style.display = "none";
+        Object.assign(name.style, outlineStylesError);
         validationPassed = false;
         console.log("Name does not meet validation")
     }
@@ -45,12 +60,14 @@ function validateForm() {
     if (validateEmail(email.value) === true) {
         emailError.style.display = "none";
         emailSucsess.style.display = "block";
+        Object.assign(email.style, outlineStylesSucsess);
     } 
     else {
         if(email.targeted){
             emailError.style.display = "block";
         }
         emailSucsess.style.display = "none";
+        Object.assign(email.style, outlineStylesError);
         validationPassed = false;
         console.log("Email does not meet validation")
     }
@@ -58,12 +75,14 @@ function validateForm() {
     if(checkLength(subject.value, 15) === true) {
         subjectError.style.display = "none";
         subjectSucsess.style.display = "block";
+        Object.assign(subject.style, outlineStylesSucsess);
     }
     else{
         if(subject.targeted){
             subjectError.style.display = "block";
         }
         subjectSucsess.style.display = "none";
+        Object.assign(subject.style, outlineStylesError);
         validationPassed = false;
         console.log("Subject does not meet validation")
     }
@@ -71,12 +90,14 @@ function validateForm() {
       if(checkLength(message.value, 25) === true) {
         messageError.style.display = "none";
         messageSucsess.style.display = "block";
+        Object.assign(message.style, outlineStylesSucsess);
     }
     else{
         if(message.targeted){
             messageError.style.display = "block";
         }
         messageSucsess.style.display = "none";
+        Object.assign(message.style, outlineStylesError);
         validationPassed = false;
         console.log("Message does not meet validation")
     }
