@@ -91,10 +91,8 @@ blogPostContainer.append(categoriesContainer);
 
 
 export function iterateBlogPosts(results){
-    // console.log(results)
 for(let i = 0; i < results.length; i++){
     const blogPosts = results[i];
-    // console.log(blogPosts);
     createBlogPost(blogPosts);
 }
 }

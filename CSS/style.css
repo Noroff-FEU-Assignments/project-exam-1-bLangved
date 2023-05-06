@@ -8,21 +8,20 @@ a {
   color: black;
   text-decoration: none;
 }
-
 ul {
   padding: 0;
 }
-
 li {
   list-style: none;
 }
-
 input,
 textarea {
   font-size: 1em;
   border: none;
 }
-
+i {
+  color: black;
+}
 button {
   height: 4em;
   width: 12em;
@@ -39,6 +38,111 @@ button:hover {
   button {
     height: 5em;
     width: 100%;
+  }
+}
+
+/* - FONTS - */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+}
+p {
+  line-height: 1.5;
+}
+
+/* h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2.25rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.75rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+h6 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+} */
+
+/* MOBILE FONTS */
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  /* h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+  }
+  h4 {
+    font-size: 1.4rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+  } */
+}
+
+/* - KEYFRAMES - */
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(1em);
+  }
+}
+
+@keyframes bounce-left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-0.5em);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.5em);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -65,14 +169,6 @@ button:hover {
   border-radius: 50%;
   animation: spin 0.75s ease-in-out infinite;
 }
-@keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 .results {
   padding: 10px;
@@ -91,12 +187,6 @@ body {
   padding: 0;
   margin: 0;
   background-color: rgb(254, 245, 232);
-}
-
-@media only screen and (max-width: 1199px) {
-  aside {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -121,6 +211,11 @@ body {
   }
 }
 
+@media only screen and (max-width: 1199px) {
+  aside {
+    display: none;
+  }
+}
 /* --- HEADER --- */
 header {
   /* background: #f29e38; */
@@ -131,34 +226,15 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
   padding: 1em;
 }
 
-.headingWrapper_header {
-  display: flex;
-  gap: 1em;
-  align-items: baseline;
-}
-
-.headingWrapper_header a,
-.subheading_header {
-  color: whitesmoke;
-}
-
-.heading_header {
-  font-size: 4rem;
-}
-
-.subheading_header {
-  font-size: 2rem;
-}
-
-.logo_header {
-  background: url(/IMAGES/beader/website_logo.png) no-repeat;
+.headerLogo_header {
+  background: url(/IMAGES/header/FretboardHaven-white-logo.svg) no-repeat;
   background-size: contain;
-  height: 3.5em;
-  width: 3.5em;
+  height: 10em;
+  width: 26em;
+  /* border: 1px solid black; */
 }
 
 /* --- NAVIGATION HEADER --- */
@@ -169,8 +245,9 @@ header {
     display: none;
   }
 
-  .headingWrapper_header {
-    margin-right: auto;
+  .headingContainer_header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .menu-icon {
@@ -181,8 +258,8 @@ header {
     border: none;
     height: 4em;
     width: 4em;
-    margin-right: auto;
     background: rgb(162, 70, 0);
+    margin-left: 1em;
   }
 
   .menu-icon .icon-bar {
@@ -193,17 +270,9 @@ header {
     background-color: whitesmoke;
   }
 
-  .heading_header {
-    font-size: 2rem;
-  }
-
-  .subheading_header {
-    font-size: 1rem;
-  }
-
-  .logo_header {
-    height: 2.5em;
-    width: 2.5em;
+  .headerLogo_header {
+    height: 8em;
+    width: 20.8em;
   }
 
   /* -- */
@@ -254,17 +323,25 @@ header {
 
 /* - phone MOBILE NAV - */
 @media only screen and (max-width: 600px) and (orientation: portrait) {
-  .heading_header {
-    font-size: 1.75rem;
+  .menu-icon {
+    margin-left: 0.5em;
   }
 
-  .subheading_header {
-    font-size: 0.8rem;
+  .headerLogo_header {
+    height: 6em;
+    width: 15.6em;
+  }
+}
+
+/* - phone MOBILE NAV - */
+@media only screen and (max-width: 400px) and (orientation: portrait) {
+  .menu-icon {
+    margin-left: 0.25em;
   }
 
-  .logo_header {
-    height: 2em;
-    width: 2em;
+  .headerLogo_header {
+    height: 4em;
+    width: 10.4em;
   }
 }
 
@@ -322,7 +399,14 @@ header {
 
 /* --- MAIN --- */
 
-main {
+/* NEEDS ADJUSTMENTS */
+@media only screen and (min-width: 1600px) {
+  main {
+    margin-left: 15%;
+  }
+  aside {
+    margin-right: 15%;
+  }
 }
 
 /* --- ASIDE --- */
@@ -331,13 +415,12 @@ aside {
   margin: 5em 0 0 0;
   position: sticky;
   position: -webkit-sticky;
-  top: 0;
+  top: 5em;
   max-height: calc(100vh - 5em);
   overflow-y: auto;
 }
 
 .categories-section_aside {
-  /* margin: 0 0 0 10em; */
   width: 22em;
 }
 
@@ -348,16 +431,19 @@ aside {
 }
 
 .ul-categories_aside {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 .ul-categories_aside li {
-  padding-bottom: 1em;
+  border-bottom: 2px solid black;
+}
+.ul-categories_aside li:not(:first-child) {
+  padding-top: 1em;
 }
 
 .ul-categories_aside li:hover {
-  transition: 0.3s ease-in-out;
-  font-size: 110%;
+  transition: 0.2s ease-in-out;
+  padding-left: 1em;
 }
 
 .ul-categories_aside li hr {
@@ -481,8 +567,7 @@ button {
 /* --- Blog containers --- */
 
 .blogContainer_index {
-  display: block;
-  margin-top: 5em;
+  /* display: block; */
 }
 
 .blogPostContainer {
@@ -490,7 +575,7 @@ button {
   width: 50em;
   margin: 0 auto 2em auto;
   /* border: 1px solid black; */
-  padding: 1em 1em 0 1em; /* small gap at bottom. not sure why. fixed with this, since I wanted padding either way */
+  padding: 1em 1em 0 1em;
 }
 
 .blogPostContainer:hover {
@@ -547,6 +632,66 @@ button {
   }
   .blogPostContentSummary {
     font-size: 0.75rem;
+  }
+}
+
+/* --- INDEX PAGE --- */
+
+.containerCarousel-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2em;
+}
+
+.containerCarousel-nav div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+.containerCarousel-nav div:first-child {
+  margin-left: auto;
+}
+.containerCarousel-nav div:last-child {
+  margin-right: auto;
+}
+
+.containerCarousel-nav div > label {
+  cursor: pointer;
+}
+
+.heading-posts_index {
+  text-align: center;
+}
+
+.carousel-nav {
+  width: 8em;
+  height: 5em;
+  background: transparent;
+}
+
+.prev:hover > i {
+  animation: bounce-left 1s ease-in-out infinite;
+}
+.next:hover > i {
+  animation: bounce-right 1s ease-in-out infinite;
+}
+
+/* - phone MOBILE NAV - */
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .heading-posts_index {
+    font-size: 1.5rem;
+  }
+  .containerCarousel-nav div > label {
+    display: none;
+  }
+}
+
+/* - phone MOBILE NAV - */
+@media only screen and (max-width: 400px) and (orientation: portrait) {
+  .heading-posts_index {
+    font-size: 1.25;
   }
 }
 

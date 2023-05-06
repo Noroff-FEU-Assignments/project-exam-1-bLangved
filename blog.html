@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>List of blogs</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/IMAGES/favicon/favicon-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="headingContainer_header">
+            <button class="menu-icon" aria-label="Mobile Menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html">
+                <div class="headerLogo_header"></div>
+            </a>
+        </div>
+        <nav class="nav_header_desktop">
+            <ul class="ul_header_desktop">
+                <li class="li_header_desktop"><a href="index.html">Home</a></li>
+                <li class="li_header_desktop"><a href="blog.html">Posts</a></li>
+                <li class="li_header_desktop"><a href="contact.html">Contact</a></li>
+                <li class="li_header_desktop"><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <nav class="nav_header_mobile">
+            <ul class="ul_header_mobile">
+                <li class="li_header_mobile"><a href="index.html">Home</a></li>
+                <li class="li_header_mobile"><a href="blog.html">Posts</a></li>
+                <li class="li_header_mobile"><a href="contact.html">Contact</a></li>
+                <li class="li_header_mobile"><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="blogContainer_index">
+        </div>
+
+    </main>
+
+    <aside>
+        <section class="categories-section_aside">
+            <h2>Categories</h2>
+            <ul class="ul-categories_aside">
+                <li><a href="">Guitars</a>
+                    <hr>
+                </li>
+                <li><a href="">Gadgets</a>
+                    <hr>
+                </li>
+                <li><a href="">Strings</a>
+                    <hr>
+                </li>
+                <li><a href="">Pedals</a>
+                    <hr>
+                </li>
+                <li><a href="">Amplifiers</a></li>
+            </ul>
+        </section>
+
+        <section class="calendarContainer">
+            <h3>Search posts by date</h3>
+            <div class="calendarHeader">
+                <div>
+                    <div>Month</div>
+                    <div>Year</div>
+                </div>
+                <div>
+                    <div>Left</div>
+                    <div>Right</div>
+                </div>
+            </div>
+            <div class="calendar_aside" id="calendar"></div>
+            <div id="posts"></div>
+        </section>
+    </aside>
+
+    <footer>
+
+        <section class="newsletter_footer">
+            <h2>NEVER MISS A BEAT</h2>
+            <p>Stay in tune with the latest updates on Guitarlicious by signing up for our newsletter. <br> Never miss a
+                post about guitars, gadgets, and all things music-related.</p>
+            <form class="newsletterForm_footer">
+                <label for="email">Your email:</label>
+                <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
+                <button type="submit">Sign up</button>
+            </form>
+        </section>
+
+        <div class="bottomSection_footer">
+            <h3>The website is operated by ©bhlweb.no</h3>
+        </div>
+
+    </footer>
+
+    <script src="/JS/components/calendar.js" defer></script>
+    <script src="JS/components/hamburgerMenu.js" defer></script>
+    <script type="module" src="JS/script.js"></script>
+</body>
+
+</html>

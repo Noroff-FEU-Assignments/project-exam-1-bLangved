@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/IMAGES/favicon/favicon-logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/4652493b4c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 
@@ -19,11 +20,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="headingWrapper_header">
-                <div class="heading_header"><a href="index.html">Guitarlicious</a></div>
-                <div class="subheading_header">A blog about guitars</div>
-                <div class="logo_header"></div>
-            </div>
+            <a href="index.html">
+                <div class="headerLogo_header"></div>
+            </a>
         </div>
         <nav class="nav_header_desktop">
             <ul class="ul_header_desktop">
@@ -44,11 +43,30 @@
     </header>
 
     <main>
+        <div class="carousel">
+            <div class="containerCarousel-nav">
 
-        <div class="blogContainer_index">
+                <div>
+                    <button class="carousel-nav prev" id="nextButton" aria-label="Next Posts">
+                        <i class="fa-solid fa-arrow-left fa-2xl"></i>
+                    </button>
+                    <label for="nextButton">Newer <br> posts</label>
+                </div>
 
+                <h1 class="heading-posts_index">Latest posts</h1>
+
+                <div>
+                    <label for="prevButton">Older <br> posts</label>
+                    <button class="carousel-nav next" id="prevButton" aria-label="Previous Posts">
+                        <i class="fa-solid fa-arrow-right fa-2xl"></i>
+                    </button>
+                </div>
+
+
+            </div>
+
+            <div class="blogContainer_index"></div>
         </div>
-
     </main>
 
     <aside>
@@ -56,16 +74,12 @@
             <h2>Categories</h2>
             <ul class="ul-categories_aside">
                 <li><a href="">Guitars</a>
-                    <hr>
                 </li>
                 <li><a href="">Gadgets</a>
-                    <hr>
                 </li>
                 <li><a href="">Strings</a>
-                    <hr>
                 </li>
                 <li><a href="">Pedals</a>
-                    <hr>
                 </li>
                 <li><a href="">Amplifiers</a></li>
             </ul>
@@ -109,7 +123,7 @@
 
     <script src="/JS/components/calendar.js" defer></script>
     <script src="JS/components/hamburgerMenu.js" defer></script>
-    <script type="module" src="JS/script.js"></script>
+    <script type="module" src="JS/indexCarousel.js"></script>
 </body>
 
 </html>
