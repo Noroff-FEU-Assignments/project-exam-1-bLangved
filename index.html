@@ -40,38 +40,46 @@
                 <li class="li_header_mobile"><a href="about.html">About</a></li>
             </ul>
         </nav>
+
     </header>
 
     <main>
+
+
+        <!-- <div class="landingPageSection">
+            <h1>Your sanctuary for all things guitar</h1>
+            <div class="landingPageImg">
+            </div>
+        </div> -->
+
+
         <div class="carousel">
+
+            <div class="blogContainer_index"></div>
+
             <div class="containerCarousel-nav">
 
                 <div>
                     <button class="carousel-nav prev" id="nextButton" aria-label="Next Posts">
                         <i class="fa-solid fa-arrow-left fa-2xl"></i>
                     </button>
-                    <label for="nextButton">Newer <br> posts</label>
+                    <label for="nextButton">Newer</label>
                 </div>
 
-                <h1 class="heading-posts_index">Latest posts</h1>
-
                 <div>
-                    <label for="prevButton">Older <br> posts</label>
+                    <label for="prevButton">Older</label>
                     <button class="carousel-nav next" id="prevButton" aria-label="Previous Posts">
                         <i class="fa-solid fa-arrow-right fa-2xl"></i>
                     </button>
                 </div>
 
-
             </div>
-
-            <div class="blogContainer_index"></div>
         </div>
     </main>
 
     <aside>
         <section class="categories-section_aside">
-            <h2>Categories</h2>
+            <h3>Categories</h3>
             <ul class="ul-categories_aside">
                 <li><a href="">Guitars</a>
                 </li>
@@ -83,22 +91,6 @@
                 </li>
                 <li><a href="">Amplifiers</a></li>
             </ul>
-        </section>
-
-        <section class="calendarContainer">
-            <h3>Search posts by date</h3>
-            <div class="calendarHeader">
-                <div>
-                    <div>Month</div>
-                    <div>Year</div>
-                </div>
-                <div>
-                    <div>Left</div>
-                    <div>Right</div>
-                </div>
-            </div>
-            <div class="calendar_aside" id="calendar"></div>
-            <div id="posts"></div>
         </section>
     </aside>
 
@@ -121,7 +113,6 @@
 
     </footer>
 
-    <script src="/JS/components/calendar.js" defer></script>
     <script src="JS/components/hamburgerMenu.js" defer></script>
     <script type="module" src="JS/indexCarousel.js"></script>
 </body>

@@ -1,4 +1,4 @@
-
+import {formatDate} from "../formatting/date.js"
 
 /* Creating HTML for blog posts containers */
 export function createBlogPost(result){
@@ -26,7 +26,8 @@ export function createBlogPost(result){
     /* Date posted */
     const postDate = document.createElement("h3");
     postDate.classList.add("postDate_blogSpecific");
-    postDate.innerText = result.date;
+    const formattedDate = formatDate(new Date(result.date));
+    postDate.innerText = formattedDate;
     subHeader.append(postDate);
     
     postContainer.append(subHeader);

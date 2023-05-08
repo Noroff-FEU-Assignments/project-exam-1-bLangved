@@ -2,8 +2,8 @@ import { iterateBlogPosts } from "./contentHTML/createBlogPosts.js";
 
 
 const baseURL = "https://projectexam1.bhlweb.no/";
-const wordpressPosts = "wp-json/wp/v2/posts";
-const embed = "?_embed";
+const wordpressPosts = "wp-json/wp/v2/posts?per_page=30";
+const embed = "&_embed";
 
 const fullUrlPosts = baseURL + wordpressPosts + embed;
 
