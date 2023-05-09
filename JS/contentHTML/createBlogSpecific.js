@@ -15,7 +15,8 @@ export function createBlogPost(result){
     const subHeader = document.createElement("div");
     subHeader.classList.add("postSubheader_blogSpecific")
     
-    const author = document.createElement("h3")
+    /* AUTHOR */
+    const author = document.createElement("h4")
     author.classList.add("postAuthor_blogSpecific");
     author.innerText = result.author
     ? result._embedded["author"][0].name
@@ -23,8 +24,8 @@ export function createBlogPost(result){
     subHeader.append(author);
     
     
-    /* Date posted */
-    const postDate = document.createElement("h3");
+    /* DATE POSTED */
+    const postDate = document.createElement("h4");
     postDate.classList.add("postDate_blogSpecific");
     const formattedDate = formatDate(new Date(result.date));
     postDate.innerText = formattedDate;
