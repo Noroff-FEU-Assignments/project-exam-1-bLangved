@@ -1,4 +1,4 @@
-import { iterateBlogPosts } from "./contentHTML/createBlogPosts.js";
+import { iterateBlogPosts } from "./contentHTML/createBlogPostsIndex.js";
 
 
 const baseURL = "https://projectexam1.bhlweb.no/";
@@ -14,7 +14,7 @@ async function fetchPosts(){
     const responsPosts = await fetch(fullUrlPosts);
     const resultsPosts = await responsPosts.json();
 
-    const postPerPage = 4;
+    const postPerPage = 5;
     let currentStartIndex = 0;
     let currentEndIndex = postPerPage;
     let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);

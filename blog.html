@@ -43,25 +43,48 @@
 
     <main>
 
-        <section class="calendarContainer">
-            <h3>Search posts by date</h3>
-            <div class="calendarHeader">
-                <div>
-                    <div>Month</div>
-                    <div>Year</div>
+        <div class="topSectionContainer_blog">
+
+            <section class="header_blog">
+                <h1>Blog archive</h1>
+                <p>Scroll through all the blog posts, or use our built-in calender</p>
+            </section>
+
+            <section class="calendarContainer">
+                <h3>Search posts by date</h3>
+                <div class="calendarHeader">
+                    <div>
+                        <label for="month">Month</label>
+                        <select id="month"></select>
+                    </div>
+                    <div>
+                        <label for="year">Year</label>
+                        <select id="year"></select>
+                    </div>
                 </div>
-                <div>
-                    <div>Left</div>
-                    <div>Right</div>
-                </div>
-            </div>
-            <div class="calendar_aside" id="calendar"></div>
-            <div id="posts"></div>
-        </section>
+                <div class="calendar-dates" id="calendar"></div>
+                <div id="posts"></div>
+            </section>
+
+        </div>
 
         <div class="blogContainer_index">
         </div>
 
+        <div class="showOlderContent">
+            <div class="blogContainer_blog"></div>
+
+            <div class="olderContentContainer-nav">
+                <button class="olderContent-nav" id="olderPostsBtn" aria-label="Older Posts">Show older posts
+                </button>
+
+            </div>
+
+            <a href="#">
+                <button class="backToTop-Btn" aria-label="Older Posts">Back to top
+                </button>
+            </a>
+        </div>
 
     </main>
 
@@ -103,7 +126,7 @@
 
     <script src="/JS/components/calendar.js" defer></script>
     <script src="JS/components/hamburgerMenu.js" defer></script>
-    <script type="module" src="JS/script.js"></script>
+    <script type="module" src="JS/displayMorePosts.js"></script>
 </body>
 
 </html>
