@@ -45,8 +45,14 @@ blogPostContainer.append(infoContainer);
 const subHeader = document.createElement("div");
 subHeader.classList.add("blogPostSubHeader")
 
+
 const author = document.createElement("h6")
 author.classList.add("blogPostAuthor");
+
+const iconUser = document.createElement("i");
+iconUser.classList.add("fa-solid", "fa-user", "fa-sm");
+subHeader.append(iconUser);
+
 author.innerText = blogPosts.author
 ? blogPosts._embedded["author"][0].name
 : "";
@@ -58,7 +64,13 @@ const postDate = document.createElement("h6");
 postDate.classList.add("blogPostDate");
 const formattedDate = formatDate(new Date(blogPosts.date));
 postDate.innerText = formattedDate;
+
+const iconDate = document.createElement("i");
+iconDate.classList.add("fa-sharp", "fa-regular", "fa-clock", "fa-sm", "date-Icon");
+subHeader.append(iconDate);
+
 subHeader.append(postDate);
+
 
 infoContainer.append(subHeader);
 

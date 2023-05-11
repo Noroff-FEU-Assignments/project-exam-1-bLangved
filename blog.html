@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>List of blogs</title>
+    <title>Fretboard Haven | Archive</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 
-<body>
+<body id="blog">
 
     <header>
         <div class="headingContainer_header">
@@ -80,10 +80,7 @@
 
             </div>
 
-            <a href="#">
-                <button class="backToTop-Btn" aria-label="Older Posts">Back to top
-                </button>
-            </a>
+            <button class="backToTop-Btn" id="backToTopBtn" aria-label="Older Posts">Back to top</button>
         </div>
 
     </main>
@@ -124,8 +121,10 @@
 
     </footer>
 
-    <script src="/JS/components/calendar.js" defer></script>
     <script src="JS/components/hamburgerMenu.js" defer></script>
+    <script src="/JS/components/calendar.js" defer></script>
+    <script src="/JS/components/scroll.js" defer></script>
+    <script src="JS/components/activeSite.js" defer></script>
     <script type="module" src="JS/displayMorePosts.js"></script>
 </body>
 

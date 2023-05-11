@@ -206,6 +206,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #fff;
+  scroll-behavior: smooth;
 }
 header {
   grid-area: header;
@@ -275,6 +276,10 @@ header {
 }
 
 /* --- NAVIGATION HEADER --- */
+
+.active {
+  font-weight: bold;
+}
 
 /* - MOBILE NAV - */
 @media only screen and (max-width: 1279px) {
@@ -606,13 +611,26 @@ footer {
 .blogPostSubHeader {
   display: flex;
   opacity: 0.75;
+  gap: 0.25em;
+  align-items: baseline;
 }
+
+.blogPostSubHeader i {
+  display: flex;
+  align-items: center;
+}
+
 .blogPostAuthor {
   margin: 0;
 }
 
+.date-Icon {
+  display: flex;
+  margin-left: auto;
+}
+
 .blogPostDate {
-  margin: 0 0 0 auto;
+  margin: 0;
 }
 
 .blogPostTitle {
@@ -1087,6 +1105,10 @@ footer {
   margin-bottom: 0.5em;
   border-radius: 0.5rem;
 }
+.formFieldset_contact textarea {
+  min-height: 10em;
+  max-height: 20em;
+}
 
 .submitBtn-form_contact {
   display: block;
@@ -1180,58 +1202,144 @@ footer {
   .formSection_contact {
     width: 40em;
   }
+
+  .formFieldset_contact input,
+  .formFieldset_contact textarea {
+    min-width: 100%;
+    max-width: 40em;
+  }
 }
 
 /* --- ABOUT --- */
 
-.accordion_about {
-  padding: 1em;
-  margin: 1em;
-  border-radius: 0.5rem;
-  background-color: #f9d5aa;
+/* - PERSON CONTAINERS - */
+
+.personsContainer {
+  /* border: 1px solid blue; */
+  width: 100%;
+}
+.personContainer {
+  /* border: 1px solid black; */
+  display: block;
+  padding: 2em;
 }
 
-.accordion-heading {
-  display: flex;
-  align-items: baseline;
+.personImage {
+  background: url(/IMAGES/about/person-portrait.jpeg) no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  border: 2px solid rgb(70, 70, 70);
+  margin: 0 auto;
 }
 
-.xIcon-accordion {
-  display: none !important;
-  /* transition: 1s ease-in-out; */
+.personName {
+  text-align: center;
 }
 
-.plusIcon-accordion {
-  /* display: none; */
-  /* transition: 1s ease-in-out; */
+.personText {
+  font-style: italic;
+  font-size: 1rem;
 }
 
-.plusIcon-accordion,
-.xIcon-accordion {
-  margin-left: auto;
-  margin-right: 1em;
+/* - MOBILE - */
+@media only screen and (max-width: 1279px) {
+  .personsContainer {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+  }
+  .personContainer {
+    height: 25em;
+  }
+  .personImage {
+    width: 9em;
+    height: 9em;
+  }
+
+  .personText {
+    font-size: 0.9rem;
+  }
 }
 
-.accordion-panel {
-  border: 1px solid black;
-  padding: 1em;
-  border-radius: 0.5rem;
-  margin-bottom: 2em;
-  background-color: white;
+/* SMALL PHONES PORTRAIT */
+@media only screen and (min-width: 300px) and (orientation: portrait) {
+  .personContainer {
+    height: fit-content;
+  }
 }
 
-.accordion-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 750ms;
+/* PHONES LANDSCAPE */
+@media only screen and (min-width: 400px) and (max-width: 949px) and (orientation: landscape) {
 }
 
-.accordion-content:hover {
-  grid-template-rows: 1fr;
+/* NORMAL TABLETS PORTRAIT */
+@media only screen and (min-width: 800px) and (orientation: portrait) {
+  .personImage {
+    width: 10em;
+    height: 10em;
+  }
 }
 
-.accordion-content > p {
-  overflow: hidden;
+/* NORMAL TABLETS LANDSCAPE */
+@media only screen and (min-width: 950px) and (orientation: landscape) {
+  .personsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-around;
+    width: fit-content;
+  }
+  .personImage {
+    width: 10em;
+    height: 10em;
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1280px) {
+  .personsContainer {
+    grid-template-columns: repeat(3, 20em);
+    width: initial;
+  }
+  .personImage {
+    width: 12em;
+    height: 12em;
+  }
+}
+
+/* - Sections about - */
+
+.container_about {
+  margin: 2em 1em;
+}
+
+.section_about a {
+  font-weight: bold;
+  text-decoration: underline;
+  color: blue;
+}
+
+/* - MOBILE - */
+@media only screen and (max-width: 1279px) {
+  .section_about p {
+    max-height: 10em;
+    overflow: hidden;
+    transition: max-height 1s ease;
+  }
+
+  .section_about .show-more {
+    max-height: 100em;
+  }
+
+  .readMore-btn {
+    width: 100%;
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1280px) {
+  .readMore-btn {
+    display: none;
+  }
 }
 
 /* --- BLOG SPECIFIC PAGE --- */
