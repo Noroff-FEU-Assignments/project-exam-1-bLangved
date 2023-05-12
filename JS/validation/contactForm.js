@@ -1,4 +1,5 @@
 import { showLoadingAnimation, hideLoadingAnimation } from "../components/loadingAnimation.js";
+import { checkLength, validateEmail} from "./inputCheck.js"
 
 const formSection = document.querySelector("#formSection")
 const form = document.querySelector("#contactForm");
@@ -116,6 +117,12 @@ requiredFields.forEach((field) => {
         field.targeted = true;
         const isValidationPassed = validateForm();
         submitButton.disabled = !isValidationPassed;
+
+        if (isValidationPassed) {
+            submitButton.classList.add("buttonEnabled");
+        } else {
+            submitButton.classList.remove("buttonEnabled");
+        }
     });
 });
 
@@ -136,21 +143,7 @@ form.addEventListener("submit", (event) => {
 
 
 /* --- VALIDATION --- */
+checkLength(value, length);
+validateEmail(email);
 
-// Checking the length of the value passed in. 
-function checkLength(value, length) {
-    if(value.trim().length >= length){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-// Checking the email passed in, to see if if passes validation. 
-function validateEmail(email) {
-    const regex = /\S+@\S+\.\S+/;
-    const patternMatches = regex.test(email);
-    return patternMatches;
-}
 

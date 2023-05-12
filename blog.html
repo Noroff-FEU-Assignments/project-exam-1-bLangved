@@ -43,49 +43,40 @@
 
     <main>
 
-        <div class="topSectionContainer_blog">
+        <section class="header_blog">
+            <h1>Blog archive</h1>
+            <p>Scroll through all the blog posts, or use our built-in calender at the bottom</p>
+        </section>
 
-            <section class="header_blog">
-                <h1>Blog archive</h1>
-                <p>Scroll through all the blog posts, or use our built-in calender</p>
-            </section>
 
-            <section class="calendarContainer">
-                <h3>Search posts by date</h3>
-                <div class="calendarHeader">
-                    <div>
-                        <label for="month">Month</label>
-                        <select id="month"></select>
-                    </div>
-                    <div>
-                        <label for="year">Year</label>
-                        <select id="year"></select>
-                    </div>
-                </div>
-                <div class="calendar-dates" id="calendar"></div>
-                <div id="posts"></div>
-            </section>
-
-        </div>
-
-        <div class="blogContainer_index">
-        </div>
+        <div class="blogContainer_index"></div>
 
         <div class="showOlderContent">
             <div class="blogContainer_blog"></div>
-
-            <div class="olderContentContainer-nav">
-                <button class="olderContent-nav" id="olderPostsBtn" aria-label="Older Posts">Show older posts
-                </button>
-
-            </div>
-
-            <button class="backToTop-Btn" id="backToTopBtn" aria-label="Older Posts">Back to top</button>
+            <button class="olderContent-btn" id="olderPostsBtn" aria-label="Older Posts">Show older posts</button>
         </div>
+
+        <button class="backToTop-Btn" id="backToTopBtn" aria-label="Older Posts">Back to top</button>
+
+        <section class="calendarContainer">
+            <h3>Search posts by date</h3>
+            <div class="calendarHeader">
+                <div>
+                    <label for="month">Month</label>
+                    <select id="month"></select>
+                </div>
+                <div>
+                    <label for="year">Year</label>
+                    <select id="year"></select>
+                </div>
+            </div>
+            <div class="calendar-dates" id="calendar"></div>
+            <div id="posts"></div>
+        </section>
 
     </main>
 
-    <aside>
+    <!-- <aside>
         <section class="categories-section_aside">
             <h3>Categories</h3>
             <ul class="ul-categories_aside">
@@ -100,7 +91,7 @@
                 <li><a href="">Amplifiers</a></li>
             </ul>
         </section>
-    </aside>
+    </aside> -->
 
     <footer>
 
@@ -109,14 +100,14 @@
             <p>Stay in tune with the latest updates on Guitarlicious by signing up for our newsletter. <br> Never miss a
                 post about guitars, gadgets, and all things music-related.</p>
             <form class="newsletterForm_footer">
-                <label for="email">Your email:</label>
-                <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
-                <button type="submit">Sign up</button>
+                <label for="email">Email-address:</label>
+                <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                <button class="submitBtn-form_footer" type="submit" disabled>Sign up</button>
             </form>
         </section>
 
         <div class="bottomSection_footer">
-            <h3>The website is operated by ©bhlweb.no</h3>
+            <h4>The website is operated by ©bhlweb.no</h4>
         </div>
 
     </footer>

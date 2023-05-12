@@ -47,6 +47,7 @@
 
         <div class="carousel">
             <div class="blogContainer_index"></div>
+
             <div class="containerCarousel-nav">
                 <div>
                     <button class="carousel-nav prev" id="nextButton" aria-label="Next Posts">
@@ -64,7 +65,7 @@
         </div>
     </main>
 
-    <aside>
+    <!-- <aside>
         <section class="categories-section_aside">
             <h3>Categories</h3>
             <ul class="ul-categories_aside">
@@ -79,7 +80,7 @@
                 <li><a href="">Amplifiers</a></li>
             </ul>
         </section>
-    </aside>
+    </aside> -->
 
     <footer>
 
@@ -88,20 +89,21 @@
             <p>Stay in tune with the latest updates on Guitarlicious by signing up for our newsletter. <br> Never miss a
                 post about guitars, gadgets, and all things music-related.</p>
             <form class="newsletterForm_footer">
-                <label for="email">Your email:</label>
-                <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
-                <button type="submit">Sign up</button>
+                <label for="email">Email-address:</label>
+                <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                <button class="submitBtn-form_footer" type="submit" disabled>Sign up</button>
             </form>
         </section>
 
         <div class="bottomSection_footer">
-            <h3>The website is operated by ©bhlweb.no</h3>
+            <h4>The website is operated by ©bhlweb.no</h4>
         </div>
 
     </footer>
 
     <script src="JS/components/hamburgerMenu.js" defer></script>
     <script src="JS/components/activeSite.js" defer></script>
+    <script type="module" src="JS/validation/footerForm.js"></script>
     <script type="module" src="JS/carousel.js"></script>
 </body>
 

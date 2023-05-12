@@ -1,6 +1,7 @@
 import { iterateBlogPosts } from "./contentHTML/createBlogPostsBlog.js";
 
 
+
 const baseURL = "https://projectexam1.bhlweb.no/";
 const wordpressPosts = "wp-json/wp/v2/posts?per_page=30";
 const embed = "&_embed";
@@ -22,6 +23,7 @@ async function fetchPosts(){
     const moreButton = document.querySelector("#olderPostsBtn");
 
     moreButton.addEventListener('click', function () {
+
         if (currentStartIndex < resultsPosts.length - postPerPage) {
           currentStartIndex += postPerPage;
           currentEndIndex += postPerPage;
