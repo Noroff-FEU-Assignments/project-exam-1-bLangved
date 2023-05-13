@@ -2,11 +2,18 @@ import {formatDate} from "../formatting/date.js"
 
 
 /* Creating HTML for blog posts containers */
-function createBlogPost(blogPosts){
+function createBlogPost(blogPosts, isPrevButtonPressed){
 const blogContainer = document.querySelector(".blogContainer_index");
 const blogPostContainer = document.createElement("div");
+
+// "Fade-in" is a transition effect class for when the containers load in
 blogPostContainer.classList.add("blogPostContainer");
 blogPostContainer.id = blogPosts.id;
+
+ // Add animation class based on which button pressed
+ const animationClass = isPrevButtonPressed ? "fade-in-left" : "fade-in-right";
+ blogPostContainer.classList.add(animationClass);
+
 
   // Create the post link and append the blog post container to it
   const postLink = document.createElement("a");
@@ -111,9 +118,9 @@ infoContainer.append(categoriesContainer);
 }
 
 
-export function iterateBlogPosts(results){
+export function iterateBlogPosts(results, isPrevButtonPressed){
 for(let i = 0; i < results.length; i++){
     const blogPosts = results[i];
-    createBlogPost(blogPosts);
+    createBlogPost(blogPosts, isPrevButtonPressed);
 }
 }

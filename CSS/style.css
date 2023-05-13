@@ -103,9 +103,6 @@ button.buttonEnabled:hover {
   transition: 0.2s ease-in-out;
 }
 
-button:hover {
-}
-
 /* MOBILE */
 @media only screen and (max-width: 1279px) {
   button {
@@ -274,6 +271,49 @@ footer {
 
 .showElement {
   display: block;
+}
+
+/* -- TRANSITION EFFECTS BLOG POSTS-- */
+
+.fade-in-left {
+  animation: fade-in-left 0.5s ease;
+}
+.fade-in-right {
+  animation: fade-in-right 0.5s ease;
+}
+.fade-in-down {
+  animation: fade-in-down 0.5s ease;
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-1em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(1em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- HEADER SECTION --- */
@@ -548,6 +588,10 @@ footer {
 
 /* --- INDEX PAGE --- */
 
+.topHeader_index {
+  text-align: center;
+}
+
 /* --- Blog containers --- */
 .blogContainer_index {
   margin-top: 2em;
@@ -813,20 +857,33 @@ footer {
   margin: 0 auto;
 }
 
-.calendarContainer h3 {
-  margin: 0;
+.calendarHeaderContainer {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 0 1em;
+  border: 1px solid black;
 }
 
-.calendarHeader {
+.calendarHeaderContainer i {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.calendarHeaderContainer .fa-x {
+  display: none;
+}
+
+.calendarMonthYear {
   cursor: pointer;
   padding: 1em 0;
 }
-.calendarHeader > div {
+.calendarMonthYear > div {
   display: flex;
   gap: 0.5em;
 }
 
-.calendarHeader > div:nth-child(2) {
+.calendarMonthYear > div:nth-child(2) {
   /* margin-left: auto; */
 }
 

@@ -5,7 +5,9 @@ import {formatDate} from "../formatting/date.js"
 function createBlogPost(blogPosts){
 const blogContainer = document.querySelector(".blogContainer_blog");
 const blogPostContainer = document.createElement("div");
-blogPostContainer.classList.add("blogPostContainer_blog");
+
+// "Fade-in" is a transition effect class for when the containers load in
+blogPostContainer.classList.add("blogPostContainer_blog", "fade-in-down");
 blogPostContainer.id = blogPosts.id;
 
   // Create the post link and append the blog post container to it

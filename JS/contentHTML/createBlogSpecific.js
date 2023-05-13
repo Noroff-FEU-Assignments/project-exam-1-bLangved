@@ -1,7 +1,14 @@
 import {formatDate} from "../formatting/date.js"
 
+const pageTitle = document.querySelector(".pageTitle_blogSpecific");
+
+
 /* Creating HTML for blog posts containers */
 export function createBlogPost(result){
+
+  pageTitle.innerText = `Guitar Haven | ${result.title.rendered}`;
+
+
     const postContainer = document.querySelector(".blogContainer_blogSpecific");
     postContainer.id = result.id;
     

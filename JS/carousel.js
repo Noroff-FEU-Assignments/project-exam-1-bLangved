@@ -31,7 +31,7 @@ async function fetchPosts(){
             currentEndIndex -= postPerPage;
             currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
             blogContainer.innerHTML = "";
-            iterateBlogPosts(currentPosts);
+            iterateBlogPosts(currentPosts, true); // Pass true for prevButton
           }
     });
     nextButton.addEventListener('click', function () {
@@ -40,7 +40,7 @@ async function fetchPosts(){
             currentEndIndex += postPerPage;
             currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
             blogContainer.innerHTML = "";
-            iterateBlogPosts(currentPosts);
+            iterateBlogPosts(currentPosts, false); // Pass false for nextButton
           }
     });
 }
