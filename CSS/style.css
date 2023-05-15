@@ -189,49 +189,9 @@ footer {
 
 /* DESKTOP */
 @media only screen and (min-width: 1280px) {
-}
-
-/* - KEYFRAMES - */
-
-@keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes move-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(1em);
-  }
-}
-
-@keyframes bounce-left {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-0.5em);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes bounce-right {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(0.5em);
-  }
-  100% {
-    transform: translateX(0);
+  /* Since view is different on desktop */
+  .main_index {
+    width: min(120ch, 100% - 4rem);
   }
 }
 
@@ -284,6 +244,9 @@ footer {
 .fade-in-down {
   animation: fade-in-down 0.5s ease;
 }
+.fade-in-down-extended {
+  animation: fade-in-down 1s ease;
+}
 
 @keyframes fade-in-left {
   0% {
@@ -316,6 +279,48 @@ footer {
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(1em);
+  }
+}
+
+@keyframes bounce-left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-0.5em);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.5em);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 /* --- HEADER SECTION --- */
 
 .headingContainer_header {
@@ -328,8 +333,9 @@ footer {
 .headerLogo_header {
   background: url(/IMAGES/header/FretboardHaven-white-logo.svg) no-repeat;
   background-size: contain;
-  height: 10em;
-  width: 26em;
+  height: 10vh;
+  width: 26vh;
+  margin: 0 auto;
 }
 
 /* --- NAVIGATION HEADER --- */
@@ -358,7 +364,7 @@ footer {
     height: 4em;
     width: 4em;
     background: rgb(162, 70, 0);
-    margin-left: 1em;
+    margin-left: 10%;
   }
 
   .menu-icon .icon-bar {
@@ -367,11 +373,6 @@ footer {
     height: 3px;
     margin: 3px 0;
     background-color: whitesmoke;
-  }
-
-  .headerLogo_header {
-    height: 8em;
-    width: 20.8em;
   }
 
   /* -- */
@@ -415,30 +416,6 @@ footer {
 
   .li_header_mobile {
     padding: 0 0 2em 1em;
-  }
-}
-
-/* SMALL PHONES NAV */
-@media only screen and (min-width: 300px) and (orientation: portrait) {
-  .menu-icon {
-    margin-left: 0.25em;
-  }
-
-  .headerLogo_header {
-    height: 4em;
-    width: 10.4em;
-  }
-}
-
-/* NORMAL PHONES NAV */
-@media only screen and (min-width: 375px) and (orientation: portrait) {
-  .menu-icon {
-    margin-left: 0.5em;
-  }
-
-  .headerLogo_header {
-    height: 6em;
-    width: 15.6em;
   }
 }
 
@@ -592,7 +569,87 @@ footer {
   text-align: center;
 }
 
-/* --- Blog containers --- */
+/* -- Blog Highlighted -- */
+
+.blogHighlighted {
+  height: 30em;
+  position: relative;
+}
+
+.blogHighlightedImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 0 5px 5px 5px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.blogHighlightedInfoContainer {
+  z-index: 1;
+  position: relative;
+  top: 10em;
+  display: block;
+  width: 90%;
+  height: fit-content;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.75); /* Using rgba() for opacity */
+  color: white;
+  padding: 2em;
+  border-radius: 0 5px 5px 5px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.highlighted {
+  opacity: 0.4;
+  transition: 0.3s ease-in-out;
+}
+
+.blogHighlightedSubHeader {
+  gap: 1em;
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.blogHighlightedSubHeader i {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.blogHighlightedAuthor,
+.blogHighlightedDate {
+  margin: 0;
+}
+
+.blogHighlightedDate {
+}
+
+.blogHighlightedTitle {
+  font-size: 2rem;
+}
+
+.blogHighlightedContentSummary {
+  font-size: 1rem;
+}
+
+.blogHighlightedCategories {
+  display: flex;
+  gap: 1em;
+}
+
+.blogHighlightedCategoriesTitle {
+}
+
+.blogHighlightedCategory {
+  color: white;
+}
+
+/* -- Blog containers -- */
 .blogContainer_index {
   margin-top: 2em;
 }
@@ -620,6 +677,7 @@ footer {
   justify-content: space-between;
   width: 100%;
   padding: 1em;
+  font-size: 1rem;
   border-left: 2px solid black;
 }
 
@@ -677,6 +735,10 @@ footer {
 
 /* MOBILE */
 @media only screen and (max-device-width: 1279px) {
+  .blogContainerHighlighted_index {
+    display: none;
+  }
+
   .blogPostContainer {
     height: 10em;
   }
@@ -758,6 +820,11 @@ footer {
 
 /* DESKTOP */
 @media only screen and (min-width: 1280px) {
+  .blogContainer_index {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   .blogPostContainer {
     height: 14em;
   }
