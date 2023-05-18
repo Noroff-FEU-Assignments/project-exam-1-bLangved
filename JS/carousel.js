@@ -3,7 +3,7 @@ import { iterateBlogPosts } from "./contentHTML/createBlogPostsIndex.js";
 
 
 const baseURL = "https://projectexam1.bhlweb.no/";
-const wordpressPosts = "wp-json/wp/v2/posts?per_page=30";
+const wordpressPosts = "wp-json/wp/v2/posts?per_page=10";
 const wordpressLatestPost = "wp-json/wp/v2/posts?per_page=1";
 const embed = "&_embed";
 
@@ -33,7 +33,7 @@ async function fetchPosts(){
     const responsPosts = await fetch(fullUrlPosts);
     const resultsPosts = await responsPosts.json();
 
-    const postPerPage = 5;
+    const postPerPage = 4;
     let currentStartIndex = 1;
     let currentEndIndex = postPerPage;
     let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
@@ -45,6 +45,9 @@ async function fetchPosts(){
     const prevButton = document.querySelector(".carousel .prev");
     const nextButton = document.querySelector(".carousel .next");
 
+    const prevButtonContainer = document.querySelector(".prevButtonContainer_index")
+    const nextButtonContainer = document.querySelector(".nextButtonContainer_index")
+
     prevButton.addEventListener('click', function () {
         if (currentStartIndex > 0) {
             currentStartIndex -= postPerPage;
@@ -52,6 +55,8 @@ async function fetchPosts(){
             currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
             blogContainer.innerHTML = "";
             iterateBlogPosts(currentPosts, true); // Pass true for prevButton
+            prevButtonContainer.style.display = "none";
+            nextButtonContainer.style.display = "flex";
           }
     });
     nextButton.addEventListener('click', function () {
@@ -61,6 +66,8 @@ async function fetchPosts(){
             currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
             blogContainer.innerHTML = "";
             iterateBlogPosts(currentPosts, false); // Pass false for nextButton
+            nextButtonContainer.style.display = "none";
+            prevButtonContainer.style.display = "flex";
           }
     });
 }

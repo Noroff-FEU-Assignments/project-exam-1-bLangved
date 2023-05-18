@@ -55,53 +55,66 @@
 
     </header>
 
-    <main class="main_index">
+    <div class="main_aside-container">
+        <main class="main_index">
 
-        <h1 class="topHeader_index">Latest blog posts</h1>
+            <section class="topHeaderContainer_index">
+                <h1>Latest</h1>
+                <hr>
+            </section>
 
-        <div class="carousel">
-            <div class="blogContainerHighlighted_index"></div>
-            <div class="blogContainer_index"></div>
+            <div class="highlightedContainer_index"></div>
 
-            <div class="containerCarousel-nav">
-                <div>
-                    <button class="carousel-nav prev" id="nextButton" aria-label="Next Posts">
-                        <i class="fa-solid fa-arrow-left fa-2xl"></i>
-                    </button>
-                    <label for="nextButton">Newer</label>
-                </div>
-                <div>
-                    <label for="prevButton">Older</label>
-                    <button class="carousel-nav next" id="prevButton" aria-label="Previous Posts">
-                        <i class="fa-solid fa-arrow-right fa-2xl"></i>
-                    </button>
+
+            <div class="carousel">
+
+                <section class="lowerHeaderContainer_index">
+                    <h2>Recent</h2>
+                    <hr>
+                </section>
+
+                <div class="blogContainer_index"></div>
+
+                <div class="containerCarousel-nav">
+                    <div class="prevButtonContainer_index">
+                        <button class="carousel-nav prev" id="nextButton" aria-label="Next Posts">
+                            <i class="fa-solid fa-arrow-left fa-2xl"></i>
+                        </button>
+                        <label for="nextButton">Newer</label>
+                    </div>
+                    <div class="nextButtonContainer_index">
+                        <label for="prevButton">Older</label>
+                        <button class="carousel-nav next" id="prevButton" aria-label="Previous Posts">
+                            <i class="fa-solid fa-arrow-right fa-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <!-- <aside>
-        <section class="categories-section_aside">
-            <h3>Categories</h3>
-            <ul class="ul-categories_aside">
-                <li><a href="">Guitars</a>
-                </li>
-                <li><a href="">Gadgets</a>
-                </li>
-                <li><a href="">Strings</a>
-                </li>
-                <li><a href="">Pedals</a>
-                </li>
-                <li><a href="">Amplifiers</a></li>
-            </ul>
-        </section>
-    </aside> -->
-
+        <aside>
+            <section class="categories-section_aside">
+                <h3>Categories</h3>
+                <ul class="ul-categories_aside">
+                    <li><a href="">Guitars</a>
+                    </li>
+                    <li><a href="">Gadgets</a>
+                    </li>
+                    <li><a href="">Strings</a>
+                    </li>
+                    <li><a href="">Pedals</a>
+                    </li>
+                    <li><a href="">Amplifiers</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
     <footer>
 
         <section class="newsletter_footer">
             <h2>NEVER MISS A BEAT</h2>
-            <p>Stay in tune with the latest updates on Guitarlicious by signing up for our newsletter. <br> Never miss a
+            <p>Stay in tune with the latest updates on Guitarlicious by signing up for our newsletter. <br> Never
+                miss a
                 post about guitars, gadgets, and all things music-related.</p>
             <form class="newsletterForm_footer">
                 <label for="email">Email-address:</label>
