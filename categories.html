@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Fretboard Haven | Home</title>
+    <title>Fretboard Haven | Categories</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
     </script>
 </head>
 
-<body id="index">
+<body id="categories">
 
     <header>
 
@@ -56,41 +56,21 @@
 
     </header>
 
-    <div class="main-aside-container main-aside_index">
-        <main class="main_index">
+    <div class="main-aside-container main-aside_blog">
+        <main>
 
-            <section class="topHeaderContainer_index">
-                <h1>Latest</h1>
-                <hr>
+            <section class="header_blog">
+                <h1>Blog posts with category of: xxx</h1>
             </section>
 
-            <div class="highlightedContainer_index"></div>
-
-
-            <div class="carousel">
-
-                <section class="lowerHeaderContainer_index">
-                    <h2>Recent</h2>
-                    <hr>
-                </section>
-
-                <div class="blogContainer_index"></div>
-
-                <div class="containerCarousel-nav">
-                    <div class="prevButtonContainer_index">
-                        <button class="carousel-nav prev" id="nextButton" aria-label="Next Posts">
-                            <i class="fa-solid fa-arrow-left fa-2xl"></i>
-                        </button>
-                        <label for="nextButton">Newer</label>
-                    </div>
-                    <div class="nextButtonContainer_index">
-                        <label for="prevButton">Older</label>
-                        <button class="carousel-nav next" id="prevButton" aria-label="Previous Posts">
-                            <i class="fa-solid fa-arrow-right fa-2xl"></i>
-                        </button>
-                    </div>
-                </div>
+            <div class="showOlderContent">
+                <div class="blogContainer_blog"></div>
+                <button class="olderContent-btn" id="olderPostsBtn" aria-label="Older Posts">Show older posts</button>
             </div>
+
+            <button class="backToTop-Btn" id="backToTopBtn" aria-label="Back to top">Back to top</button>
+
+
         </main>
 
         <aside aria-labelledby="aside-heading">
@@ -146,9 +126,9 @@
     </footer>
 
     <script src="JS/components/hamburgerMenu.js" defer></script>
+    <script src="/JS/components/scroll.js" defer></script>
     <script src="JS/components/activeSite.js" defer></script>
-    <script type="module" src="JS/validation/footerForm.js"></script>
-    <script type="module" src="JS/carousel.js"></script>
+    <script type="module" src="JS/categories.js"></script>
 </body>
 
 </html>

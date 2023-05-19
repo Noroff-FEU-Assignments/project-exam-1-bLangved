@@ -48,17 +48,9 @@ header {
   background: var(--clr-primary-1);
 }
 
-.main_aside-container {
+.main-aside-container {
   display: grid;
   grid-template-columns: 1fr;
-}
-
-/* Extra large devices (Desktop, 1200px and up) */
-@media screen and (min-width: 1200px) {
-  .main_aside-container {
-    grid-template-columns: 1fr auto;
-    gap: 2em;
-  }
 }
 
 main {
@@ -67,7 +59,35 @@ main {
 }
 
 aside {
-  width: fit-content;
+  display: none;
+  width: 15em;
+  height: fit-content;
+  position: sticky;
+  top: 5em;
+}
+
+/* Only used for accessability reasons, giving the Aside-tag a header for screen readers */
+.aside-heading {
+  display: none;
+}
+
+.section_aside {
+  margin-top: 2.5em;
+}
+.section_aside h3 {
+  background: var(--clr-primary-1);
+  color: white;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.ul_aside li {
+  padding: 1em 0.5em;
+}
+
+.ul_aside li:hover {
+  animation: move-right 0.3s ease forwards;
+  text-decoration: underline;
 }
 
 footer {
@@ -172,9 +192,24 @@ p {
 
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
-  /* Since view is different on desktop */
-  .main_index {
+  /* Since view is different on desktop, and you get the Aside-section */
+  .main-aside-container {
+    grid-template-columns: 1fr auto;
+    gap: 2em;
     width: min(120ch, 100% - 4rem);
+    margin-inline: auto;
+  }
+
+  .main-aside_index {
+    width: min(135ch, 100% - 4rem);
+  }
+
+  main {
+    width: initial;
+  }
+
+  aside {
+    display: block;
   }
 
   button {
@@ -239,6 +274,7 @@ p {
   animation: fade-in-down 1s ease;
 }
 
+/* Used by blog post containers */
 @keyframes fade-in-left {
   0% {
     opacity: 0;
@@ -270,6 +306,7 @@ p {
   }
 }
 
+/* Used by loading animations */
 @keyframes spin {
   0% {
     transform: rotate(0);
@@ -279,7 +316,8 @@ p {
   }
 }
 
-/* @keyframes move-right {
+/* Used by Aside-lists */
+@keyframes move-right {
   0% {
     transform: translateX(0);
   }
@@ -288,6 +326,7 @@ p {
   }
 }
 
+/* Used by Carousel button on index.html */
 @keyframes bounce-left {
   0% {
     transform: translateX(0);
@@ -309,8 +348,8 @@ p {
   }
   100% {
     transform: translateX(0);
-  } */
-/* } */
+  }
+}
 
 /* ------ HEADER SECTION ------ */
 
@@ -561,7 +600,7 @@ p {
 .topHeaderContainer_index,
 .lowerHeaderContainer_index {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .topHeaderContainer_index h1,
@@ -575,8 +614,9 @@ p {
 .topHeaderContainer_index hr,
 .lowerHeaderContainer_index hr {
   width: 100%;
-  margin-left: 1em;
   height: 3px;
+  border: none;
+  margin: 0.75em 0 0 1em;
   background-color: var(--clr-primary-1);
   color: var(--clr-primary-1);
 }
@@ -584,11 +624,12 @@ p {
 /* -- Blog Highlighted -- */
 
 .highlightedContainer_index {
-  margin-bottom: 5em;
+  margin-bottom: 2.5em;
 }
 
 .blogPostContainer_index {
   border-bottom: 1px solid lightgray;
+  margin-bottom: 2.5em;
 }
 
 .blogPostContainer_index:hover,
@@ -922,6 +963,13 @@ p {
 .formSucsess_contact div {
   text-align: center;
   padding: 1em;
+}
+
+/* Extra large devices (Desktop, 1200px and up) */
+@media screen and (min-width: 1200px) {
+  .formSection_contact {
+    width: 40em;
+  }
 }
 
 /* ------ ABOUT ------ */
