@@ -27,8 +27,16 @@
 :root {
   /* Header color */
   --clr-primary-1: rgb(162, 70, 0);
+  /* Minor contrast to clr above */
+  /* --clr-secondary-1: rgb(162, 70, 0); */
+
   /* Footer color / navdesktop-list */
   --clr-primary-2: #2c2926;
+  /* Minor contrast to clr above */
+  --clr-secondary-2: #37322f;
+
+  /* General white color */
+  --clr-primary-3: whitesmoke;
 }
 
 /* html {
@@ -66,17 +74,12 @@ aside {
   top: 5em;
 }
 
-/* Only used for accessability reasons, giving the Aside-tag a header for screen readers */
-.aside-heading {
-  display: none;
-}
-
 .section_aside {
   margin-top: 2.5em;
 }
 .section_aside h3 {
   background: var(--clr-primary-1);
-  color: white;
+  color: var(--clr-primary-3);
   padding: 0.5em;
   margin: 0;
 }
@@ -91,7 +94,7 @@ aside {
 }
 
 footer {
-  color: whitesmoke;
+  color: var(--clr-primary-3);
   background: var(--clr-primary-2);
 }
 
@@ -144,12 +147,12 @@ button:disabled {
 }
 
 button.buttonEnabled {
-  color: white;
+  color: var(--clr-primary-3);
   background: rgb(0, 200, 0);
   transition: 0.3s ease-in-out;
 }
 button.buttonEnabled:hover {
-  color: white;
+  color: var(--clr-primary-3);
   background: rgb(0, 170, 0);
   transition: 0.2s ease-in-out;
 }
@@ -170,6 +173,19 @@ h6 {
 p {
   line-height: 2;
   font-size: 1rem;
+}
+
+.small-header {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.medium-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.large-header {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* Small devices (portrait tablets & large phones, 600px and up) */
@@ -221,6 +237,20 @@ p {
   }
 }
 
+/* Accessibility */
+
+/* This class hides elements on the page, but screen readers can still see them */
+.hide-element {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 /* -- Loading animation -- */
 
 .loadingContainer {
@@ -239,7 +269,7 @@ p {
   width: 2em;
   height: 2em;
   margin: 0.5em auto auto auto;
-  border: 10px solid white;
+  border: 10px solid var(--clr-primary-3);
   border-top-color: #ffaa34;
   border-radius: 50%;
   animation: spin 0.75s ease-in-out infinite;
@@ -360,9 +390,7 @@ p {
   padding: 1em;
 }
 
-.headerLogo_header {
-  background: url(/IMAGES/header/FretboardHaven-white-logo.svg) no-repeat;
-  background-size: contain;
+.logo_header {
   height: 10vh;
   width: 26vh;
   margin: 0 auto;
@@ -398,21 +426,22 @@ p {
   width: 2.5em;
   height: 3px;
   margin: 3px 0;
-  background-color: whitesmoke;
+  background-color: var(--clr-primary-3);
 }
 
-.nav_header_mobile {
+.navContainer-header_mobile {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
 }
 
-.nav_header_mobile.nav-open {
-  max-height: 17.5em;
+.navContainer-header_mobile.nav-open {
+  /* As long as it has enough height to display the content of the NAV, its good */
+  max-height: 50em;
 }
 
 .nav-collapsed .icon-bar {
-  background-color: whitesmoke;
+  background-color: var(--clr-primary-3);
   transition: all 0.3s ease-in-out;
 }
 
@@ -428,37 +457,74 @@ p {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-.ul_header_mobile {
+.ul_primary_mobile,
+.ul_categories_mobile,
+.ul_subCategories_mobile {
   text-transform: uppercase;
 }
 
-.ul_header_mobile a {
-  color: whitesmoke;
+.ul_primary_mobile a,
+.ul_categories_mobile a,
+.ul_subCategories_mobile a {
+  color: var(--clr-primary-3);
 }
 
-.li_header_mobile {
-  padding: 0 0 2em 1em;
+.li_primary_mobile,
+.li_categories_mobile,
+.li_subCategories_mobile {
+  padding: 0 0 2em 2em;
+}
+
+.li_categories_mobile:first-child,
+.li_subCategories_mobile:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  font-weight: bold;
+}
+
+.li_categories_mobile:first-child i,
+.li_subCategories_mobile:first-child i {
+  color: var(--clr-primary-3);
+}
+
+.nav_categories_mobile,
+.nav_subCategories_mobile {
+  display: none;
+}
+
+.show-categories-btn,
+.hide-categories-btn,
+.show-subCategories-btn,
+.hide-subCategories-btn {
+  width: fit-content;
+  height: fit-content;
+  background: transparent;
+  color: var(--clr-primary-3);
+  padding: 0;
+  font-weight: inherit;
+  font-size: 1rem;
 }
 
 /* - DESKTOP DESIGN - */
 .nav_header_desktop {
   display: none;
-  border-top: 2px solid whitesmoke;
+  border-top: 2px solid var(--clr-primary-3);
 }
 
 .ul_header_desktop {
   display: flex;
   background: var(--clr-primary-2);
   justify-content: center;
-  font-size: 1.5rem;
-  gap: 2em;
+  font-size: 1.25rem;
+  gap: 2.5em;
   padding: 0.5em;
   margin: 0;
 }
 
 .li_header_desktop a {
   position: relative;
-  color: whitesmoke;
+  color: var(--clr-primary-3);
 }
 
 .li_header_desktop a::before {
@@ -469,7 +535,7 @@ p {
   width: 0;
   height: 2px;
   background-color: rgb(0, 0, 0);
-  background-color: whitesmoke;
+  background-color: var(--clr-primary-3);
   transition: width 0.3s ease;
 }
 
@@ -553,7 +619,7 @@ p {
     #2c2926 75%,
     #2c2926 100%
   );
-  color: whitesmoke;
+  color: var(--clr-primary-3);
   text-align: center;
   margin-bottom: 1em;
   border-bottom: 2px solid rgb(245, 245, 245, 0.6);
@@ -565,12 +631,13 @@ p {
 }
 
 .bottomSection_footer {
-  background-color: #37322f;
-  overflow: auto;
+  background-color: var(--clr-secondary-2);
 }
-.bottomSection_footer h4 {
+.bottomSection_footer h3 {
   display: flex;
   justify-content: center;
+  font-size: 1rem;
+  padding: 2em;
 }
 
 /* Small devices (portrait tablets & large phones, 600px and up) */
@@ -955,7 +1022,7 @@ p {
   height: 5em;
   margin-top: 2em;
   border-radius: 50%;
-  background: white;
+  background: var(--clr-primary-3);
 }
 
 .formSucsess_contact img,

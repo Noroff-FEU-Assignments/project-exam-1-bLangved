@@ -44,7 +44,7 @@ infoContainer.append(categoriesContainer);
 
 
 /* Title */
-const title = document.createElement("h4");
+const title = document.createElement("h2");
 title.classList.add("blogPostTitle_blog");
 title.innerText = blogPosts.title.rendered;
 infoContainer.append(title);
@@ -54,7 +54,7 @@ infoContainer.append(title);
 const subHeader = document.createElement("div");
 subHeader.classList.add("blogPostSubHeader_blog")
 
-const author = document.createElement("h6")
+const author = document.createElement("span")
 author.classList.add("blogPostAuthor_blog");
 
 const iconUser = document.createElement("i");
@@ -68,7 +68,7 @@ subHeader.append(author);
 
 
 /* Date posted */
-const postDate = document.createElement("h6");
+const postDate = document.createElement("span");
 postDate.classList.add("blogPostDate_blog");
 const formattedDate = formatDate(new Date(blogPosts.date));
 postDate.innerText = formattedDate;

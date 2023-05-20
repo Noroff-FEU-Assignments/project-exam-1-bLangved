@@ -28,30 +28,77 @@
     <header>
 
         <div class="headingContainer_header">
+            <a href="#maincontent" class="hide-element">Skip to main content</a>
             <button class="menu-icon" aria-label="Mobile Menu">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a href="index.html">
-                <div class="headerLogo_header"></div>
+                <img src="IMAGES/header/FretboardHaven-white-logo.svg" alt="Site Logo" class="logo_header">
             </a>
         </div>
-        <nav class="nav_header_desktop">
+
+        <nav class="nav_header_desktop" aria-label="Navigation desktop">
             <ul class="ul_header_desktop">
-                <li class="li_header_desktop"><a href="index.html">Home</a></li>
-                <li class="li_header_desktop"><a href="blog.html">Archive</a></li>
-                <li class="li_header_desktop"><a href="contact.html">Contact</a></li>
-                <li class="li_header_desktop"><a href="about.html">About</a></li>
+                <li class="li_header_desktop"><a href="index.html" aria-label="Homepage">Home</a></li>
+                <li class="li_header_desktop"><a href="blog.html" aria-label="Blog archive">Archive</a></li>
+                <li class="li_header_desktop"><a href="contact.html" aria-label="Contact page">Contact</a></li>
+                <li class="li_header_desktop"><a href="about.html" aria-label="About page">About</a></li>
             </ul>
         </nav>
-        <nav class="nav_header_mobile">
-            <ul class="ul_header_mobile">
-                <li class="li_header_mobile"><a href="index.html">Home</a></li>
-                <li class="li_header_mobile"><a href="blog.html">Archive</a></li>
-                <li class="li_header_mobile"><a href="contact.html">Contact</a></li>
-                <li class="li_header_mobile"><a href="about.html">About</a></li>
-            </ul>
+
+        <nav class="navContainer-header_mobile" aria-label="Navigation mobile">
+
+            <nav class="nav_primary_mobile" aria-label="Main navigation menu">
+                <ul class="ul_primary_mobile">
+                    <li class="li_primary_mobile"><a href="index.html" aria-label="Homepage">Home</a></li>
+                    <li class="li_primary_mobile"><a href="blog.html" aria-label="Blog archive">Archive</a></li>
+                    <li class="li_primary_mobile"><a href="contact.html" aria-label="Contact page">Contact</a></li>
+                    <li class="li_primary_mobile"><a href="about.html" aria-label="About page">About</a></li>
+                    <li class="li_primary_mobile">
+                        <button class="show-categories-btn" aria-label="Filter posts by categories">Categories</button>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="nav_categories_mobile" aria-label="Categories menu">
+                <ul class="ul_categories_mobile">
+                    <li class="li_categories_mobile">
+                        <i class="fa-solid fa-arrow-left fa-l"></i>
+                        <button class="hide-categories-btn" aria-label="Back to primary menu">Go back</button>
+                    </li>
+                    <li class="li_categories_mobile"><a href="categories.html?id=2"
+                            aria-label="Guitar-related posts">Guitar</a></li>
+                    <li class="li_categories_mobile"><a href="categories.html?id=13"
+                            aria-label="Amplifier-related posts">Amplifier</a></li>
+                    <li class="li_categories_mobile"><a href="categories.html?id=11"
+                            aria-label="Gadget-related posts">Gadgets</a></li>
+                    <li class="li_categories_mobile">
+                        <button class="show-subCategories-btn" aria-label="Filter posts by sub Categories">Sub
+                            categories</button>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="nav_subCategories_mobile" aria-label="Sub categories menu">
+                <ul class="ul_subCategories_mobile">
+                    <li class="li_subCategories_mobile">
+                        <i class="fa-solid fa-arrow-left fa-l"></i>
+                        <button class="hide-subCategories-btn" aria-label="Back to categories menu">Go back</button>
+                    </li>
+                    <li class="li_subCategories_mobile"><a href="categories.html?id=12"
+                            aria-label="Pedal-related posts">Pedals</a></li>
+                    <li class="li_subCategories_mobile"><a href="categories.html?id=17"
+                            aria-label="Guitar pick-related posts">Picks</a></li>
+                    <li class="li_subCategories_mobile"><a href="categories.html?id=15"
+                            aria-label="Pickup-related posts">Pickups</a></li>
+                    <li class="li_subCategories_mobile"><a href="categories.html?id=14"
+                            aria-label="String-related posts">Strings</a></li>
+                    <li class="li_subCategories_mobile"><a href="categories.html?id=19"
+                            aria-label="Technique-related posts">Techniques</a></li>
+                    <li class="li_subCategories_mobile"><a href="categories.html?id=18"
+                            aria-label="Theory-related posts">Theory</a></li>
+                </ul>
+            </nav>
         </nav>
 
     </header>
@@ -74,13 +121,13 @@
         </main>
 
         <aside aria-labelledby="aside-heading">
-            <h2 class="aside-heading" id="aside-heading">Blog Post Categories</h2>
+            <h2 class="hide-element" id="aside-heading">Blog post Categories</h2>
             <section class="section_aside">
                 <h3>Main categories</h3>
                 <ul class="ul_aside">
                     <li><a href="categories.html?id=2" aria-label="Guitar-related posts">Guitar</a>
                     </li>
-                    <li><a href="categories.html?id=13" aria-label="Amplifier-related posts">Amplifiers</a>
+                    <li><a href="categories.html?id=13" aria-label="Amplifier-related posts">Amplifier</a>
                     </li>
                     <li><a href="categories.html?id=11" aria-label="Gadget-related posts">Gadgets</a>
                     </li>
@@ -89,7 +136,7 @@
             <section class="section_aside">
                 <h3>Sub categories</h3>
                 <ul class="ul_aside">
-                    <li><a href="categories.html?id=12" aria-label="Pedal-related posts">Pedal</a>
+                    <li><a href="categories.html?id=12" aria-label="Pedal-related posts">Pedals</a>
                     </li>
                     <li><a href="categories.html?id=17" aria-label="Guitar pick-related posts">Picks</a>
                     </li>
@@ -115,12 +162,13 @@
             <form class="newsletterForm_footer">
                 <label for="email">Email-address:</label>
                 <input type="email" id="email" name="email" placeholder="email@example.com" required>
-                <button class="submitBtn-form_footer" type="submit" disabled>Sign up</button>
+                <button class="submitBtn-form_footer" type="submit"
+                    aria-label="Providing a valid Email-address enables the button" disabled>Sign up</button>
             </form>
         </section>
 
         <div class="bottomSection_footer">
-            <h4>The website is operated by ©bhlweb.no</h4>
+            <h3>The website is operated by ©bhlweb.no</h3>
         </div>
 
     </footer>

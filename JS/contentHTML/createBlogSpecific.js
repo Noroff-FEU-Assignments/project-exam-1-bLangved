@@ -23,7 +23,7 @@ export function createBlogPost(result){
     subHeader.classList.add("postSubheader_blogSpecific")
     
     /* AUTHOR */
-    const author = document.createElement("h4")
+    const author = document.createElement("span")
     author.classList.add("postAuthor_blogSpecific");
     author.innerText = result.author
     ? result._embedded["author"][0].name
@@ -32,7 +32,7 @@ export function createBlogPost(result){
     
     
     /* DATE POSTED */
-    const postDate = document.createElement("h4");
+    const postDate = document.createElement("span");
     postDate.classList.add("postDate_blogSpecific");
     const formattedDate = formatDate(new Date(result.date));
     postDate.innerText = formattedDate;
@@ -90,7 +90,7 @@ export function createBlogPost(result){
     const categoriesContainer = document.createElement("div");
       categoriesContainer.classList.add("postCategories_blogSpecific");
     
-      const categoriesTitle = document.createElement("h4");
+      const categoriesTitle = document.createElement("div");
       categoriesTitle.classList.add("postCategoriesTitle_blogSpecific");
       categoriesTitle.innerText = "Categories:";
       categoriesContainer.append(categoriesTitle);

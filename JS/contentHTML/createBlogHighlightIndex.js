@@ -45,7 +45,7 @@ const categoriesContainer = document.createElement("div");
 infoContainer.append(categoriesContainer);
 
 /* Title */
-const title = document.createElement("h3");
+const title = document.createElement("h2");
 title.classList.add("highlightedTitle_index");
 title.innerText = blogPost.title.rendered;
 infoContainer.append(title);
@@ -55,7 +55,7 @@ const subHeader = document.createElement("div");
 subHeader.classList.add("highlightedSubHeader_index")
 
 /* Author */
-const author = document.createElement("h6")
+const author = document.createElement("span")
 author.classList.add("highlightedAuthor_index");
 const iconUser = document.createElement("i");
 iconUser.classList.add("fa-solid", "fa-user", "fa-sm");
@@ -68,7 +68,7 @@ subHeader.append(author);
 
 
 /* Date posted */
-const postDate = document.createElement("h6");
+const postDate = document.createElement("span");
 postDate.classList.add("highlightedDate_index");
 const formattedDate = formatDate(new Date(blogPost.date));
 postDate.innerText = formattedDate;
@@ -105,14 +105,5 @@ const contentSummary = document.createElement("p");
 contentSummary.classList.add("highlightedContentSummary_index");
 contentSummary.innerText = blogPost.excerpt.rendered.replace(/<\/?p>/g, "");
 blogPostContainer.append(contentSummary);
-
-
-// infoContainer.addEventListener("mouseover", function() {
-//   topImage.classList.add("highlighted");
-// });
-
-// infoContainer.addEventListener("mouseout", function() {
-//   topImage.classList.remove("highlighted");
-// });
 
 }

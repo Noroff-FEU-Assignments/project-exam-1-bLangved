@@ -49,7 +49,7 @@ infoContainer.append(categoriesContainer);
 
 
 /* Title */
-const title = document.createElement("h4");
+const title = document.createElement("h3");
 title.classList.add("blogPostTitle_index");
 title.innerText = blogPosts.title.rendered;
 infoContainer.append(title);
@@ -59,7 +59,7 @@ const subHeader = document.createElement("div");
 subHeader.classList.add("blogPostSubHeader_index")
 
 
-const author = document.createElement("h6")
+const author = document.createElement("span")
 author.classList.add("blogPostAuthor_index");
 
 const iconUser = document.createElement("i");
@@ -73,7 +73,7 @@ subHeader.append(author);
 
 
 /* Date posted */
-const postDate = document.createElement("h6");
+const postDate = document.createElement("span");
 postDate.classList.add("blogPostDate_index");
 const formattedDate = formatDate(new Date(blogPosts.date));
 postDate.innerText = formattedDate;
@@ -112,7 +112,7 @@ blogPostContainer.append(topImage);
 const contentSummary = document.createElement("p");
 contentSummary.classList.add("blogPostContentSummary_index");
 let excerptText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
-contentSummary.innerText = excerptText.length > 250 ? excerptText.substring(0, 250) + '...' : excerptText;
+contentSummary.innerText = excerptText.length > 150 ? excerptText.substring(0, 150) + '...' : excerptText;
 blogPostContainer.append(contentSummary);
 
 }
