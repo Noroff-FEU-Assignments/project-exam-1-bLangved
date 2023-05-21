@@ -12,7 +12,7 @@ async function fetchPosts(){
     const responsPosts = await fetch(fullUrlPosts);
     const resultsPosts = await responsPosts.json();
 
-    const postPerPage = 6;
+    const postPerPage = 10;
     let currentStartIndex = 0;
     let currentEndIndex = postPerPage;
     let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);

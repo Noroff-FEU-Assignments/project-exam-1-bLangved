@@ -118,6 +118,7 @@ svg,
 video {
   max-width: 100%;
   display: block;
+  cursor: pointer;
 }
 
 input::placeholder,
@@ -391,8 +392,10 @@ p {
 }
 
 .logo_header {
-  height: 10vh;
+  min-height: 5em;
+  max-height: 10em;
   width: 26vh;
+  min-width: 12em;
   margin: 0 auto;
 }
 
@@ -1131,6 +1134,11 @@ p {
   gap: 1em;
   margin: 2em 0;
   border-top: 1px solid black;
+  padding: 0.5em 0;
+}
+
+.postCategoriesTitle_blogSpecific {
+  font-weight: bold;
 }
 
 .postCategory_blogSpecific:hover {
@@ -1175,4 +1183,42 @@ p {
   .postImage_blogSpecific {
     height: 25em;
   }
+}
+
+/* Image modal */
+.imageOverlay_blogspecific {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalImage_blogSpecific {
+  margin: 10em auto;
+  width: 90%;
+  max-width: 50em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  background-color: var(--clr-primary-3);
+}
+
+.modalImageBtn_blogSpecific {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 300px;
+  height: 5em;
+  background-color: var(--clr-primary-3);
+  color: var(--clr-primary-2);
+}
+
+.modalImageBtn_blogSpecific:hover {
+  background-color: white;
+  color: var(black);
+  transition: 0.3s ease-in-out;
 }

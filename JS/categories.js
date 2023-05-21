@@ -1,16 +1,22 @@
 import { iterateBlogPosts } from "./contentHTML/createBlogPostsBlog.js";
+import { reverseCategoryIdCheck } from "./validation/categoryIdCheck.js";
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
-console.log(id);
+const idForHeader = reverseCategoryIdCheck(id);
+
+
+const categoriesTitle = document.querySelector(".typeOfCategory-Title");
+categoriesTitle.innerText = "Blog posts with category of: " + idForHeader;
+
 const baseURL = "https://projectexam1.bhlweb.no/";
 const wordpressCategoryPosts = `wp-json/wp/v2/posts?categories=${id}&per_page=30`;
 const embed = "&_embed";
 
 const fullUrlPosts = baseURL + wordpressCategoryPosts + embed;
-console.log(fullUrlPosts)
+// console.log(fullUrlPosts)
 
 async function fetchPosts(){
     const responsPosts = await fetch(fullUrlPosts);
@@ -24,7 +30,6 @@ async function fetchPosts(){
     let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
 
     iterateBlogPosts(currentPosts);
-
 
     const moreButton = document.querySelector("#olderPostsBtn");
 

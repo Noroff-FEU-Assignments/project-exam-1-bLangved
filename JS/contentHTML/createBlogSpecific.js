@@ -1,4 +1,6 @@
-import {formatDate} from "../formatting/date.js"
+import { formatDate } from "../formatting/date.js";
+import { modalImage } from "../components/modal.js";
+import { categoryIdCheck} from "../validation/categoryIdCheck.js";
 
 const pageTitle = document.querySelector(".pageTitle_blogSpecific");
 
@@ -44,6 +46,7 @@ export function createBlogPost(result){
     /* Main image */
     const topImage = document.createElement("img");
     topImage.classList.add("postImage_blogSpecific");
+    topImage.id = "image-blog-specific";
     const imageUrl = result.featured_media
     ? result._embedded["wp:featuredmedia"][0].source_url
     : "";
@@ -59,6 +62,10 @@ export function createBlogPost(result){
     topImage.append(imageUrl)
     
     postContainer.append(topImage);
+
+
+    // Creates modal Image in modal.js
+    modalImage(topImage);
 
 
     /* Description / paragraph */
@@ -100,7 +107,13 @@ export function createBlogPost(result){
       categories.forEach(category => {
         const categoryElement = document.createElement("a");
         categoryElement.classList.add("postCategory_blogSpecific");
-        categoryElement.href = category.link;
+
+        const categoryRef = category.link.split('/category/');
+        if (categoryRef.length > 1) {
+          const categoryString = categoryRef[1];
+          categoryElement.href = `categories.html?id=${categoryIdCheck(categoryString)}`;
+        }
+        
         categoryElement.innerText = category.name;
         categoriesContainer.append(categoryElement);
     });

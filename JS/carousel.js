@@ -49,6 +49,9 @@ async function fetchPosts(){
     const nextButtonContainer = document.querySelector(".nextButtonContainer_index")
 
     prevButton.addEventListener('click', function () {
+        // Takes you to the top of the container (Where the "Recent" title is)
+        window.location.href = '#' + recentPosts.id;
+        // Actual eventListener
         if (currentStartIndex > 0) {
             currentStartIndex -= postPerPage;
             currentEndIndex -= postPerPage;
@@ -60,6 +63,9 @@ async function fetchPosts(){
           }
     });
     nextButton.addEventListener('click', function () {
+        // Takes you to the top of the container (Where the "Recent" title is)
+        window.location.href = '#' + recentPosts.id;
+        // Actual eventListener
         if (currentEndIndex < resultsPosts.length) {
             currentStartIndex += postPerPage;
             currentEndIndex += postPerPage;
