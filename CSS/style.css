@@ -28,7 +28,7 @@
   /* Header color */
   --clr-primary-1: rgb(162, 70, 0);
   /* Minor contrast to clr above */
-  /* --clr-secondary-1: rgb(162, 70, 0); */
+  /* --clr-secondary-1: rgb(140, 60, 0); */
 
   /* Footer color / navdesktop-list */
   --clr-primary-2: #2c2926;
@@ -54,15 +54,20 @@ body {
 
 header {
   background: var(--clr-primary-1);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .main-aside-container {
   display: grid;
   grid-template-columns: 1fr;
+  margin-bottom: 2.5em;
 }
 
 main {
-  width: min(80ch, 100% - 1rem);
+  width: min(80ch, 100% - 1.5rem);
   margin-inline: auto;
 }
 
@@ -96,6 +101,11 @@ aside {
 footer {
   color: var(--clr-primary-3);
   background: var(--clr-primary-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 35em;
+  transition: min-height 1s ease;
 }
 
 a {
@@ -177,24 +187,16 @@ p {
 }
 
 .small-header {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 .medium-header {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 .large-header {
   font-size: 2rem;
   font-weight: bold;
-}
-
-/* Small devices (portrait tablets & large phones, 600px and up) */
-@media screen and (min-width: 600px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media screen and (min-width: 768px) {
 }
 
 /* Large devices (laptops / desktops, 992px and up) */
@@ -209,6 +211,9 @@ p {
 
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
+  header {
+    position: static;
+  }
   /* Since view is different on desktop, and you get the Aside-section */
   .main-aside-container {
     grid-template-columns: 1fr auto;
@@ -392,11 +397,12 @@ p {
 }
 
 .logo_header {
-  min-height: 5em;
-  max-height: 10em;
-  width: 26vh;
-  min-width: 12em;
+  min-height: 4em;
+  max-height: 8em;
+  width: 24vh;
+  min-width: 10em;
   margin: 0 auto;
+  transition: max-height 1s ease-in-out;
 }
 
 /* ------ NAVIGATION HEADER ------ */
@@ -430,6 +436,7 @@ p {
   height: 3px;
   margin: 3px 0;
   background-color: var(--clr-primary-3);
+  transition: all 0.3s ease-in-out;
 }
 
 .navContainer-header_mobile {
@@ -480,9 +487,6 @@ p {
 
 .li_categories_mobile:first-child,
 .li_subCategories_mobile:first-child {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5em;
   font-weight: bold;
 }
 
@@ -550,15 +554,6 @@ p {
   color: #d9b88f;
 }
 
-/* Small devices (portrait tablets & large phones, 600px and up) */
-@media screen and (min-width: 600px) {
-}
-/* Medium devices (landscape tablets, 768px and up) */
-@media screen and (min-width: 768px) {
-}
-/* Large devices (laptops / desktops, 992px and up) */
-@media screen and (min-width: 992px) {
-}
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
   /* HIDE MOBILE NAV */
@@ -582,37 +577,45 @@ p {
 
 /* ------ FOOTER SECTION ------ */
 
-.newsletter_footer {
+.headerSection_footer {
   width: min(80ch, 100% - 4rem);
   margin-inline: auto;
   text-align: center;
 }
 
-.newsletter_footer h2 {
+.headerSection_footer h2 {
   padding-top: 1em;
 }
 
-.newsletter_footer p {
-  margin-bottom: 2em;
+.confirmation-section_footer {
+  display: none;
 }
 
-.newsletterForm_footer {
+.backToTop-btn_footer {
+  display: none;
+  margin: 0 auto;
+  width: 20em;
+  background-color: var(--clr-primary-1);
+  color: var(--clr-primary-3);
+}
+
+.form_footer {
   display: flex;
   flex-direction: column;
 }
-.newsletterForm_footer label,
-.newsletterForm_footer input,
-.newsletterForm_footer button {
+.form_footer label,
+.form_footer input,
+.form_footer button {
   margin: 0 auto;
   width: 100%;
   border: none;
 }
 
-.newsletterForm_footer label {
+.form_footer label {
   padding: 0.5em;
 }
 
-.newsletterForm_footer input {
+.form_footer input {
   height: 3em;
   background: linear-gradient(
     to right,
@@ -629,7 +632,7 @@ p {
   border-radius: 0;
   outline: none;
 }
-.newsletterForm_footer button {
+.form_footer button {
   margin-bottom: 2em;
 }
 
@@ -643,23 +646,16 @@ p {
   padding: 2em;
 }
 
-/* Small devices (portrait tablets & large phones, 600px and up) */
-@media screen and (min-width: 600px) {
-}
-
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (min-width: 768px) {
-  .newsletterForm_footer label,
-  .newsletterForm_footer input,
-  .newsletterForm_footer button {
+  .form_footer label,
+  .form_footer input,
+  .form_footer button {
     min-width: 60%;
     max-width: 60%;
   }
 }
 
-/* Large devices (laptops / desktops, 992px and up) */
-@media screen and (min-width: 992px) {
-}
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
 }
@@ -715,6 +711,7 @@ p {
   flex-direction: column;
   justify-content: space-between;
   padding: 0.5em;
+  z-index: 2;
 }
 
 .highlightedCategories_index,
@@ -761,7 +758,7 @@ p {
   margin: 0;
 }
 
-/* works for both index.html and blog.html */
+/* works for both index.html, blogSpecific.html and blog.html */
 .date-Icon {
   margin-left: auto;
 }
@@ -806,12 +803,12 @@ p {
   display: none;
 }
 
-.containerCarousel-nav div > label {
-  cursor: pointer;
-}
-
 .carousel-nav {
-  width: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
   background: transparent;
 }
 
@@ -822,17 +819,6 @@ p {
   animation: bounce-right 1s ease-in-out infinite;
 }
 
-/* Small devices (portrait tablets & large phones, 600px and up) */
-@media screen and (min-width: 600px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media screen and (min-width: 768px) {
-}
-
-/* Large devices (laptops / desktops, 992px and up) */
-@media screen and (min-width: 992px) {
-}
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
   .blogContainerHighlighted_index {
@@ -939,21 +925,6 @@ p {
   border-radius: 0;
   border: 2px solid black;
   background: transparent;
-}
-
-/* Small devices (portrait tablets & large phones, 600px and up) */
-@media screen and (min-width: 600px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media screen and (min-width: 768px) {
-}
-
-/* Large devices (laptops / desktops, 992px and up) */
-@media screen and (min-width: 992px) {
-}
-/* Extra large devices (Desktop, 1200px and up) */
-@media screen and (min-width: 1200px) {
 }
 
 /* ------  CONTACT ------ */
@@ -1105,61 +1076,6 @@ p {
   font-style: italic;
 }
 
-/* ------ BLOG SPECIFIC PAGE ------ */
-
-.postTitle_blogSpecific {
-  text-align: center;
-}
-
-.postSubheader_blogSpecific {
-  display: flex;
-}
-
-.postDate_blogSpecific {
-  margin-left: auto;
-}
-
-.postImage_blogSpecific {
-  width: 100%;
-  height: 15em;
-  margin: 1em 0;
-}
-
-.paragraph_blogSpecific {
-}
-
-.postCategories_blogSpecific {
-  display: flex;
-  align-items: baseline;
-  gap: 1em;
-  margin: 2em 0;
-  border-top: 1px solid black;
-  padding: 0.5em 0;
-}
-
-.postCategoriesTitle_blogSpecific {
-  font-weight: bold;
-}
-
-.postCategory_blogSpecific:hover {
-  transition: 0.1s ease-in;
-  text-decoration: underline 1px;
-}
-
-/* Small devices (portrait tablets & large phones, 600px and up) */
-@media screen and (min-width: 600px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media screen and (min-width: 768px) {
-}
-
-/* Large devices (laptops / desktops, 992px and up) */
-@media screen and (min-width: 992px) {
-  .postImage_blogSpecific {
-    height: 20em;
-  }
-}
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
   .section_about p {
@@ -1180,9 +1096,60 @@ p {
   .readMore-btn {
     display: none;
   }
-  .postImage_blogSpecific {
-    height: 25em;
-  }
+}
+
+/* ------ BLOG SPECIFIC PAGE ------ */
+
+.postTitle_blogSpecific {
+  text-align: center;
+  padding: 1em 0;
+}
+
+.postSubheader_blogSpecific {
+  display: flex;
+  opacity: 0.75;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.postAuthor_blogSpecific,
+.postDate_blogSpecific {
+  margin: 0;
+}
+
+.postImage_blogSpecific {
+  width: 100%;
+  height: 15em;
+  margin: 1em 0;
+  object-fit: cover;
+}
+
+.paragraph_blogSpecific {
+}
+
+.postLastModifiedDate_blogSpecific {
+  font-style: italic;
+  font-weight: bolder;
+  padding: 2em 0 0;
+  text-decoration: underline;
+}
+
+.postCategories_blogSpecific {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+  margin: 2em 0;
+  border-top: 1px solid black;
+  padding: 0.5em 0;
+}
+
+.postCategoriesTitle_blogSpecific {
+  font-weight: bold;
+}
+
+.postCategory_blogSpecific:hover {
+  transition: 0.1s ease-in;
+  text-decoration: underline 1px;
 }
 
 /* Image modal */
@@ -1221,4 +1188,11 @@ p {
   background-color: white;
   color: var(black);
   transition: 0.3s ease-in-out;
+}
+
+/* Extra large devices (Desktop, 1200px and up) */
+@media screen and (min-width: 1200px) {
+  .postImage_blogSpecific {
+    height: 22.5em;
+  }
 }

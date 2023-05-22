@@ -50,7 +50,7 @@ infoContainer.append(categoriesContainer);
 
 /* Title */
 const title = document.createElement("h3");
-title.classList.add("blogPostTitle_index");
+title.classList.add("blogPostTitle_index", "small-header");
 title.innerText = blogPosts.title.rendered;
 infoContainer.append(title);
 

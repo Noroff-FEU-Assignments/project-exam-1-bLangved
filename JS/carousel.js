@@ -20,7 +20,7 @@ async function fetchLatestPost(){
 const responsPost = await fetch(fullUrlLatestPost);
 const resultPost = await responsPost.json();
 
-// console.log(resultPost);
+console.log(resultPost);
 createHighlightPost(resultPost[0]);
 }
 fetchLatestPost();
@@ -50,7 +50,9 @@ async function fetchPosts(){
 
     prevButton.addEventListener('click', function () {
         // Takes you to the top of the container (Where the "Recent" title is)
-        window.location.href = '#' + recentPosts.id;
+        if(window.innerWidth < 1200){
+            window.location.href = '#' + recentPosts.id;
+        }
         // Actual eventListener
         if (currentStartIndex > 0) {
             currentStartIndex -= postPerPage;
@@ -64,7 +66,9 @@ async function fetchPosts(){
     });
     nextButton.addEventListener('click', function () {
         // Takes you to the top of the container (Where the "Recent" title is)
-        window.location.href = '#' + recentPosts.id;
+        if(window.innerWidth < 1200){
+            window.location.href = '#' + recentPosts.id;
+        }
         // Actual eventListener
         if (currentEndIndex < resultsPosts.length) {
             currentStartIndex += postPerPage;

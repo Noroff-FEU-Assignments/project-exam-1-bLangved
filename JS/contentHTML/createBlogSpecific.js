@@ -16,7 +16,7 @@ export function createBlogPost(result){
     
     /* Title */
     const title = document.createElement("h1");
-    title.classList.add("postTitle_blogSpecific");
+    title.classList.add("postTitle_blogSpecific", "large-header");
     title.innerText = result.title.rendered;
     postContainer.append(title);
     
@@ -27,6 +27,11 @@ export function createBlogPost(result){
     /* AUTHOR */
     const author = document.createElement("span")
     author.classList.add("postAuthor_blogSpecific");
+
+    const iconUser = document.createElement("i");
+    iconUser.classList.add("fa-solid", "fa-user", "fa-sm");
+    subHeader.append(iconUser);
+
     author.innerText = result.author
     ? result._embedded["author"][0].name
     : "";
@@ -38,6 +43,11 @@ export function createBlogPost(result){
     postDate.classList.add("postDate_blogSpecific");
     const formattedDate = formatDate(new Date(result.date));
     postDate.innerText = formattedDate;
+
+    const iconDate = document.createElement("i");
+    iconDate.classList.add("fa-sharp", "fa-regular", "fa-clock", "fa-sm", "date-Icon");
+    subHeader.append(iconDate);
+
     subHeader.append(postDate);
     
     postContainer.append(subHeader);
@@ -91,8 +101,18 @@ export function createBlogPost(result){
     }
     postContainer.append(paragraph);    
 
+
+    /* Last Modified Time */
+    const lastModifiedDate = document.createElement("div");
+    lastModifiedDate.classList.add("postLastModifiedDate_blogSpecific");
     
-    
+    if(result.modified !== result.date){
+    const modifiedDate = new Date(result.modified);
+    const formattedModifiedDate = formatDate(modifiedDate);
+    lastModifiedDate.innerText = "This blog post was updated at: " + formattedModifiedDate;
+    postContainer.append(lastModifiedDate);
+    }
+
     /* Categories */
     const categoriesContainer = document.createElement("div");
       categoriesContainer.classList.add("postCategories_blogSpecific");

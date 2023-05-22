@@ -20,7 +20,8 @@ const hideSubCategoriesBtn = document.querySelector(".hide-subCategories-btn");
 menuIcon.addEventListener('click', function () {
   navContainer.classList.toggle("nav-open");
   menuIcon.classList.toggle("nav-collapsed");
-  });
+});
+
 
 
 /* Show categories in header */

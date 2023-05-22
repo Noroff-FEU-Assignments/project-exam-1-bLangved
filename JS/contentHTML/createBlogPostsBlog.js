@@ -45,7 +45,7 @@ infoContainer.append(categoriesContainer);
 
 /* Title */
 const title = document.createElement("h2");
-title.classList.add("blogPostTitle_blog");
+title.classList.add("blogPostTitle_blog", "medium-header");
 title.innerText = blogPosts.title.rendered;
 infoContainer.append(title);
 
