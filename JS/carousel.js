@@ -48,10 +48,10 @@ async function fetchPosts(){
     const prevButtonContainer = document.querySelector(".prevButtonContainer_index")
     const nextButtonContainer = document.querySelector(".nextButtonContainer_index")
 
-    prevButton.addEventListener('click', function () {
+    prevButton.addEventListener("click", function () {
         // Takes you to the top of the container (Where the "Recent" title is)
         if(window.innerWidth < 1200){
-            window.location.href = '#' + recentPosts.id;
+            window.location.href = "#" + recentPosts.id;
         }
         // Actual eventListener
         if (currentStartIndex > 0) {
@@ -64,10 +64,10 @@ async function fetchPosts(){
             nextButtonContainer.style.display = "flex";
           }
     });
-    nextButton.addEventListener('click', function () {
+    nextButton.addEventListener("click", function () {
         // Takes you to the top of the container (Where the "Recent" title is)
         if(window.innerWidth < 1200){
-            window.location.href = '#' + recentPosts.id;
+            window.location.href = "#" + recentPosts.id;
         }
         // Actual eventListener
         if (currentEndIndex < resultsPosts.length) {

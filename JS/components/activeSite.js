@@ -1,5 +1,5 @@
 
-    // Get current page based on body's id
+    // Get current page based on body"s id
     const currentPage = document.body.id;
     console.log("Active site: " + currentPage + ".html");
 
@@ -17,8 +17,8 @@
       
      // Needs to check if there is an a-tag in the mobile nav (since there is a li wihtout a-tag, with a nested button that shows the other nav. 
      // If not, it will return "null" in console)
-      const anchor = link.querySelector('a');
-      if (anchor && anchor.getAttribute('href') === currentPage + '.html') {
-        link.classList.add('active');
+      const anchor = link.querySelector("a");
+      if (anchor && anchor.getAttribute("href") === currentPage + ".html") {
+        link.classList.add("active");
       }
     });

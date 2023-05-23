@@ -25,7 +25,7 @@
 
 <body class="body_contact" id="contact">
 
-    <header>
+    <header id="banner">
 
         <div class="headingContainer_header">
             <a href="#maincontent" class="hide-element">Skip to main content</a>
@@ -64,8 +64,8 @@
             <nav class="nav_categories_mobile" aria-label="Categories menu">
                 <ul class="ul_categories_mobile">
                     <li class="li_categories_mobile">
-                        <i class="fa-solid fa-arrow-left fa-l"></i>
-                        <button class="hide-categories-btn" aria-label="Back to primary menu">Go back</button>
+                        <button class="hide-categories-btn" aria-label="Back to primary menu"><i
+                                class="fa-solid fa-arrow-left fa-l"></i> Go back</button>
                     </li>
                     <li class="li_categories_mobile"><a href="categories.html?id=2"
                             aria-label="Guitar-related posts">Guitar</a></li>
@@ -82,8 +82,8 @@
             <nav class="nav_subCategories_mobile" aria-label="Sub categories menu">
                 <ul class="ul_subCategories_mobile">
                     <li class="li_subCategories_mobile">
-                        <i class="fa-solid fa-arrow-left fa-l"></i>
-                        <button class="hide-subCategories-btn" aria-label="Back to categories menu">Go back</button>
+                        <button class="hide-subCategories-btn" aria-label="Back to categories menu"><i
+                                class="fa-solid fa-arrow-left fa-l"></i> Go back</button>
                     </li>
                     <li class="li_subCategories_mobile"><a href="categories.html?id=12"
                             aria-label="Pedal-related posts">Pedals</a></li>
@@ -209,19 +209,30 @@
         </aside>
     </div>
 
-    <footer>
+    <footer id="footer">
 
-        <section class="newsletter_footer">
+        <section class="headerSection_footer initial-section_footer">
             <h2>NEVER MISS A BEAT</h2>
-            <p>Stay in tune with the latest updates on Guitar Haven by signing up for our newsletter. <br> Never miss a
-                post about guitars, gadgets, and all things music-related.</p>
-            <form class="newsletterForm_footer">
-                <label for="email">Email-address:</label>
-                <input type="email" id="email" name="email" placeholder="email@example.com" required>
-                <button class="submitBtn-form_footer" type="submit"
-                    aria-label="Providing a valid Email-address enables the button" disabled>Sign up</button>
-            </form>
+            <p>Stay in tune with the latest updates on Guitar Haven by signing up for our newsletter.<br>
+                Never miss a post about guitars, gadgets, and all things music-related.</p>
         </section>
+
+        <section class="headerSection_footer confirmation-section_footer">
+            <h2>Thank you for subscribing to our newsletter!</h2>
+            <p>You will recieve an email from us shortly to verify you email address. <br>
+                Love having you onboard!
+        </section>
+
+        <button class="backToTop-btn_footer" id="backToTopBtnFooter" aria-label="Back to top">Click here to get to the
+            top</button>
+
+
+        <form class="form_footer">
+            <label for="email">Email-address:</label>
+            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+            <button class="submitBtn-form_footer" type="submit"
+                aria-label="Providing a valid Email-address enables the button" disabled>Sign up</button>
+        </form>
 
         <div class="bottomSection_footer">
             <h3>The website is operated by ©bhlweb.no</h3>

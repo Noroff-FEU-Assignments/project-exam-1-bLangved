@@ -1,19 +1,18 @@
 const processingForm = document.querySelector("#processingForm");
-// const loadingContent = document.querySelector("#loadingContent");
 
 // Function to show the loading animation
 export function showLoadingAnimation() {
-    processingForm.style.display = 'flex';
+    processingForm.style.display = "flex";
 }
 // Function to hide the loading animation
 export function hideLoadingAnimation() {
-    processingForm.style.display = 'none';
+    processingForm.style.display = "none";
 }
 
 
 // Function to update loading text with dots
 function updateLoadingText(loadingText, dotCount) {
-    loadingText.innerText = `Processing${'.'.repeat(dotCount)}`;
+    loadingText.innerText = `Processing${".".repeat(dotCount)}`;
 }
 
 // Attach event listener to each loading animation element

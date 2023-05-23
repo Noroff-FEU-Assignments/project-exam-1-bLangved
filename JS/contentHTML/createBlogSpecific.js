@@ -128,7 +128,7 @@ export function createBlogPost(result){
         const categoryElement = document.createElement("a");
         categoryElement.classList.add("postCategory_blogSpecific");
 
-        const categoryRef = category.link.split('/category/');
+        const categoryRef = category.link.split("/category/");
         if (categoryRef.length > 1) {
           const categoryString = categoryRef[1];
           categoryElement.href = `categories.html?id=${categoryIdCheck(categoryString)}`;

@@ -8,5 +8,5 @@ export function formatDate(date) {
     const monthIndex = date.getMonth();
     const year = date.getFullYear();
   
-    return `${monthNames[monthIndex]} ${String(day).padStart(2, '0')}, ${year}`;
+    return `${monthNames[monthIndex]} ${String(day).padStart(2, "0")}, ${year}`;
   }

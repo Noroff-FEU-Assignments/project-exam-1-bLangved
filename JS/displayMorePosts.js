@@ -22,7 +22,7 @@ async function fetchPosts(){
 
     const moreButton = document.querySelector("#olderPostsBtn");
 
-    moreButton.addEventListener('click', function () {
+    moreButton.addEventListener("click", function () {
 
         if (currentStartIndex < resultsPosts.length - postPerPage) {
           currentStartIndex += postPerPage;

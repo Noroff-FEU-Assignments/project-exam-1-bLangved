@@ -10,7 +10,7 @@ imageOverlay.classList.add("imageOverlay_blogspecific");
 const bigImage = document.createElement("img");
 bigImage.classList.add("modalImage_blogSpecific");
 
-
+// Create close button below image. Can click outside of image as well, but meant as a help for screenreaders etc. 
 const closeBtn = document.createElement("button");
 closeBtn.classList.add("modalImageBtn_blogSpecific");
 closeBtn.innerText = "Close image"

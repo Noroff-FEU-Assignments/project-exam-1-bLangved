@@ -112,7 +112,7 @@ blogPostContainer.append(topImage);
 const contentSummary = document.createElement("p");
 contentSummary.classList.add("blogPostContentSummary_index");
 let excerptText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
-contentSummary.innerText = excerptText.length > 150 ? excerptText.substring(0, 150) + '...' : excerptText;
+contentSummary.innerText = excerptText.length > 150 ? excerptText.substring(0, 150) + "..." : excerptText;
 blogPostContainer.append(contentSummary);
 
 }

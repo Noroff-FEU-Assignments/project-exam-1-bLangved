@@ -54,9 +54,14 @@ body {
 
 header {
   background: var(--clr-primary-1);
+  /* Sticky does not work good, since it pushed down the content of the page. Looked wierd with my design. */
+  /* Might change this to fixed, and make adjustments on index.html (because of top image being position absolute */
+  /* position: fixed; */
+  /* width: 100%; */
   position: sticky;
   position: -webkit-sticky;
   top: 0;
+  left: 0;
   z-index: 999;
 }
 
@@ -581,9 +586,6 @@ p {
   width: min(80ch, 100% - 4rem);
   margin-inline: auto;
   text-align: center;
-}
-
-.headerSection_footer h2 {
   padding-top: 1em;
 }
 
@@ -606,9 +608,12 @@ p {
 .form_footer label,
 .form_footer input,
 .form_footer button {
+  text-align: center;
   margin: 0 auto;
   width: 100%;
   border: none;
+  min-width: max-content;
+  max-width: 80%;
 }
 
 .form_footer label {
@@ -651,16 +656,56 @@ p {
   .form_footer label,
   .form_footer input,
   .form_footer button {
-    min-width: 60%;
-    max-width: 60%;
+    min-width: max-content;
+    max-width: 40rem;
   }
+}
+
+/* ------ INDEX PAGE ------ */
+
+.topPageContainer_index {
+  border-top: 3px solid var(--clr-primary-2);
+  border-bottom: 3px solid var(--clr-primary-2);
+}
+
+.mainImageContainer_index {
+  background-color: var(--clr-primary-1);
+}
+.mainImage_index {
+  min-height: 20em;
+  max-height: 20em;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  cursor: initial;
+}
+
+.topPageTextContainer_index {
+  position: absolute;
+  top: 12em;
+  left: 60%;
+  transform: translateX(-40%);
+}
+
+.textImage_index {
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+  min-width: 10em;
+  max-width: 16em;
+  cursor: initial;
 }
 
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
+  .mainImage_index {
+    min-height: 22em;
+    max-height: 22em;
+  }
+  .topPageTextContainer_index {
+    top: 16em;
+  }
 }
-
-/* ------ INDEX PAGE ------ */
 
 /* - Headers - */
 .topHeaderContainer_index,

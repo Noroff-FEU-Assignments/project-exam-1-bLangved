@@ -104,7 +104,7 @@ const contentSummary = document.createElement("p");
 contentSummary.classList.add("blogPostContentSummary_blog");
 
 let excerptText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
-contentSummary.innerText = excerptText.length > 250 ? excerptText.substring(0, 250) + '...' : excerptText;
+contentSummary.innerText = excerptText.length > 250 ? excerptText.substring(0, 250) + "..." : excerptText;
 
 // contentSummary.innerText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
 blogPostContainer.append(contentSummary);

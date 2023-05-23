@@ -1,7 +1,6 @@
 const menuIcon = document.querySelector(".menu-icon");
 const navContainer = document.querySelector(".navContainer-header_mobile")
 
-
 const navPrimary = document.querySelector(".nav_primary_mobile");
 const navCategories = document.querySelector(".nav_categories_mobile");
 const navSubCategories = document.querySelector(".nav_subCategories_mobile")
@@ -17,7 +16,7 @@ const hideSubCategoriesBtn = document.querySelector(".hide-subCategories-btn");
 
 
 /* Toggles nav_header_mobile "on/off" by showing nav or not*/ 
-menuIcon.addEventListener('click', function () {
+menuIcon.addEventListener("click", function () {
   navContainer.classList.toggle("nav-open");
   menuIcon.classList.toggle("nav-collapsed");
 });
@@ -25,7 +24,7 @@ menuIcon.addEventListener('click', function () {
 
 
 /* Show categories in header */
-showCategoriesBtn.addEventListener('click', function () {
+showCategoriesBtn.addEventListener("click", function () {
   navPrimary.style.display = "none";
   navCategories.style.display = "block"
   ulCategories.classList.add("fade-in-left");
@@ -33,7 +32,7 @@ showCategoriesBtn.addEventListener('click', function () {
 
 
 /* Hide categories from header */
-hideCategoriesBtn.addEventListener('click', function () {
+hideCategoriesBtn.addEventListener("click", function () {
   navCategories.style.display = "none";
   navPrimary.style.display = "block"
   ulPrimary.classList.add("fade-in-right");
@@ -41,7 +40,7 @@ hideCategoriesBtn.addEventListener('click', function () {
 
 
 /* Show sub categories in header */
-showSubCategoriesBtn.addEventListener('click', function () {
+showSubCategoriesBtn.addEventListener("click", function () {
   navCategories.style.display = "none";
   navSubCategories.style.display = "block";
   ulSubCategories.classList.add("fade-in-left");
@@ -49,7 +48,7 @@ showSubCategoriesBtn.addEventListener('click', function () {
 
 
 /* Hide sub categories from header */
-hideSubCategoriesBtn.addEventListener('click', function () {
+hideSubCategoriesBtn.addEventListener("click", function () {
   navSubCategories.style.display = "none";
   navCategories.style.display = "block";
   ulCategories.classList.add("fade-in-right");
