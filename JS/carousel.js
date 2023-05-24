@@ -42,6 +42,9 @@ async function fetchPosts(){
 
 
     /* Carousel slider buttons - Update content */
+
+    const carouselContainer = document.querySelector(".containerCarousel-nav");
+
     const prevButton = document.querySelector(".carousel .prev");
     const nextButton = document.querySelector(".carousel .next");
 
@@ -62,6 +65,7 @@ async function fetchPosts(){
             iterateBlogPosts(currentPosts, true); // Pass true for prevButton
             prevButtonContainer.style.display = "none";
             nextButtonContainer.style.display = "flex";
+            carouselContainer.style.float = "right";
           }
     });
     nextButton.addEventListener("click", function () {
@@ -78,6 +82,7 @@ async function fetchPosts(){
             iterateBlogPosts(currentPosts, false); // Pass false for nextButton
             nextButtonContainer.style.display = "none";
             prevButtonContainer.style.display = "flex";
+            carouselContainer.style.float = "left";
           }
     });
 }

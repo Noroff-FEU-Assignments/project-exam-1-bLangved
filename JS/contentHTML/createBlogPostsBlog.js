@@ -10,12 +10,6 @@ const blogPostContainer = document.createElement("div");
 blogPostContainer.classList.add("blogPostContainer_blog", "fade-in-down");
 blogPostContainer.id = blogPosts.id;
 
-// Create the post link and append the blog post container to it
-const postLink = document.createElement("a");
-postLink.href = `blogSpecific.html?id=${blogPosts.id}`;
-postLink.append(blogPostContainer);  
-blogContainer.append(postLink);
-
 
 /* blogInfoContainer */
 const infoContainer = document.createElement("div");
@@ -47,7 +41,13 @@ infoContainer.append(categoriesContainer);
 const title = document.createElement("h2");
 title.classList.add("blogPostTitle_blog", "medium-header");
 title.innerText = blogPosts.title.rendered;
-infoContainer.append(title);
+
+// Create the post link and append title to it
+const postLinkTitle = document.createElement("a");
+postLinkTitle.href = `blogSpecific.html?id=${blogPosts.id}`;
+
+postLinkTitle.append(title)
+infoContainer.append(postLinkTitle);
 
 
 /* SubHeader - author and date */
@@ -83,6 +83,12 @@ infoContainer.append(subHeader);
 /* Main image */
 const topImage = document.createElement("img");
 topImage.classList.add("blogPostImage_blog");
+
+// Create the post link and append image to it
+const postLinkImage = document.createElement("a");
+postLinkImage.href = `blogSpecific.html?id=${blogPosts.id}`;
+
+
 const imageUrl = blogPosts.featured_media
 ? blogPosts._embedded["wp:featuredmedia"][0].source_url
 : "";
@@ -97,7 +103,8 @@ topImage.alt = imageAlt;
 topImage.append(imageAlt)
 topImage.append(imageUrl)
 
-blogPostContainer.append(topImage);
+postLinkImage.append(topImage);
+infoContainer.append(postLinkImage);
 
 /* Content summary / excerpt */
 const contentSummary = document.createElement("p");
@@ -105,9 +112,10 @@ contentSummary.classList.add("blogPostContentSummary_blog");
 
 let excerptText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
 contentSummary.innerText = excerptText.length > 250 ? excerptText.substring(0, 250) + "..." : excerptText;
-
 // contentSummary.innerText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
 blogPostContainer.append(contentSummary);
+
+blogContainer.append(blogPostContainer)
 
 }
 

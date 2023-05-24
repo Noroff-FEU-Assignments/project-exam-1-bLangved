@@ -157,7 +157,7 @@ button {
 }
 
 button:disabled {
-  background: gray;
+  background: lightgray;
   color: rgb(50, 50, 50);
   transition: 0.3s ease-in-out;
 }
@@ -678,9 +678,6 @@ p {
   background-color: black;
 }
 .mainImage_index {
-  min-height: 12em;
-  height: 40vw;
-  max-height: 20em;
   width: 100%;
   object-fit: cover;
   opacity: 0.75;
@@ -689,28 +686,65 @@ p {
 
 .topPageTextContainer_index {
   position: absolute;
-  top: 16%;
-  left: 60%;
-  transform: translateX(-40%);
+  left: 65%;
+  transform: translateX(-35%);
 }
 
 .textImage_index {
   object-fit: cover;
   height: auto;
   width: 100%;
-  min-width: 10em;
-  max-width: 16em;
   cursor: initial;
+}
+
+@media screen and (max-width: 370px) {
+  .topPageTextContainer_index {
+    position: absolute;
+    left: 55%;
+    transform: translateX(-45%);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .mainImage_index {
+    min-height: 15em;
+    max-height: 15em;
+  }
+  .topPageTextContainer_index {
+    top: 9em;
+  }
+  .textImage_index {
+    min-width: 12em;
+    max-width: 12em;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .mainImage_index {
+    min-height: 25em;
+    max-height: 25em;
+  }
+  .topPageTextContainer_index {
+    top: 13.75em;
+  }
+  .textImage_index {
+    min-width: 15em;
+    max-width: 15em;
+  }
 }
 
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
   .mainImage_index {
-    min-height: 20em;
-    max-height: 20em;
+    min-height: 40em;
+    max-height: 40em;
   }
   .topPageTextContainer_index {
-    top: 14em;
+    top: 22em;
+  }
+  .textImage_index {
+    min-width: 20em;
+    max-width: 20em;
   }
 }
 
@@ -739,110 +773,12 @@ p {
   color: var(--clr-primary-1);
 }
 
-/* -- Blog Highlighted -- */
-
-.highlightedContainer_index {
-  margin-bottom: 2.5em;
-}
-
-.blogPostContainer_index {
-  border-bottom: 1px solid lightgray;
-  margin-bottom: 2.5em;
-}
-
-.blogPostContainer_index:hover,
-.highlightedContainer_index:hover {
-  opacity: 0.75;
-  transition: 0.1s ease-in;
-  box-shadow: 0.5px 0.5px 5px black;
-}
-
-.highlightedInfoContainer_index,
-.blogPostInfoContainer_index {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0.5em;
-  z-index: 2;
-}
-
-.highlightedCategories_index,
-.blogPostCategories_index {
-  display: flex;
-  gap: 1em;
-  align-items: baseline;
-  font-size: 0.8rem;
-  padding: 0.5em 0;
-}
-
-.highlightedCategoriesTitle_index,
-.blogPostCategoriesTitle_index {
-  font-weight: bold;
-}
-
-.highlightedCategory_index:hover,
-.blogPostCategory_index:hover {
-  transition: 0.1s ease-in;
-  text-decoration: underline 1px;
-}
-
-.highlightedTitle_index,
-.blogPostTitle_index {
-  margin: 0.75em 0;
-  text-transform: uppercase;
-  /* For central aligning title in grid view (does not effect highlighted title) */
-  display: flex;
-  align-items: center;
-}
-
-.highlightedSubHeader_index,
-.blogPostSubHeader_index {
-  display: flex;
-  opacity: 0.75;
-  align-items: baseline;
-  gap: 0.5em;
-}
-
-.highlightedAuthor_index,
-.highlightedDate_index,
-.blogPostAuthor_index,
-.blogPostDate_index {
-  margin: 0;
-  font-size: 0.75rem;
-}
-
-/* works for both index.html, blogSpecific.html and blog.html */
-.date-Icon {
-  margin-left: auto;
-}
-
-.highlightedImage_index,
-.blogPostImage_index {
-  opacity: 0.75;
-  object-fit: cover;
-  width: 100%;
-}
-
-.highlightedImage_index {
-  height: 16em;
-}
-
-.blogPostImage_index {
-  height: 8em;
-}
-
-.highlightedContentSummary_index,
-.blogPostContentSummary_index {
-  padding: 0 0.5em;
-  font-style: italic;
-  font-size: 1rem;
-}
-
 /* - Carousel - */
 
 .containerCarousel-nav {
   display: block;
   border: 2px solid black;
+  width: 100%;
 }
 
 .containerCarousel-nav div {
@@ -874,15 +810,149 @@ p {
 
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
+  .containerCarousel-nav {
+    width: 20em;
+    float: right;
+  }
+}
+
+/* -- BLOG CONTAINERS -- */
+/* INDEX.html, BLOG.html, CATEGORIES.html */
+
+.highlightedContainer_index {
+  margin-bottom: 2.5em;
+}
+
+.blogPostContainer_index,
+.blogPostContainer_blog {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 2.5em;
+}
+
+.highlightedInfoContainer_index,
+.blogPostInfoContainer_index,
+.blogPostInfoContainer_blog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.highlightedCategories_index,
+.blogPostCategories_index,
+.blogPostCategories_blog {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  font-size: 0.75rem;
+}
+
+.highlightedCategoriesTitle_index,
+.blogPostCategoriesTitle_index,
+.blogPostCategoriesTitle_blog {
+  font-weight: bold;
+}
+
+.highlightedCategory_index:hover,
+.blogPostCategory_index:hover,
+.blogPostCategory_blog:hover {
+  transition: 0.1s ease-in;
+  text-decoration: underline;
+}
+
+.highlightedTitle_index,
+.blogPostTitle_index,
+.blogPostTitle_blog {
+  margin: 0.75em 0;
+  text-transform: uppercase;
+  /* For central aligning title in grid view (does not effect highlighted title) */
+  display: flex;
+  align-items: center;
+}
+.highlightedTitle_index:hover,
+.blogPostTitle_index:hover,
+.blogPostTitle_blog:hover {
+  transition: 0.1s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.highlightedSubHeader_index,
+.blogPostSubHeader_index,
+.blogPostSubHeader_blog {
+  display: flex;
+  opacity: 0.75;
+  align-items: baseline;
+  gap: 0.5em;
+  padding: 0 0 0.25em 0;
+}
+
+.highlightedAuthor_index,
+.highlightedDate_index,
+.blogPostAuthor_index,
+.blogPostDate_index,
+.blogPostAuthor_blog,
+.blogPostDate_blog {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+/* works for both index.html, blogSpecific.html and blog.html */
+.date-Icon {
+  margin-left: auto;
+}
+
+.highlightedImage_index,
+.blogPostImage_index,
+.blogPostImage_blog {
+  opacity: 0.75;
+  object-fit: cover;
+  width: 100%;
+}
+
+.highlightedImage_index {
+  height: 18em;
+}
+
+.blogPostImage_index,
+.blogPostImage_blog {
+  height: 12em;
+}
+
+.highlightedImage_index:hover,
+.blogPostImage_index:hover,
+.blogPostImage_blog:hover {
+  transition: 0.1s ease-in;
+  opacity: 0.6;
+  box-shadow: 1px 1px 5px black;
+}
+
+.highlightedContentSummary_index,
+.blogPostContentSummary_index,
+.blogPostContentSummary_blog {
+  padding: 0 0.5em;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* Extra large devices (Desktop, 1200px and up) */
+@media screen and (min-width: 1200px) {
   .blogContainerHighlighted_index {
     height: 30em;
+    border: 1px solid black;
+  }
+
+  .highlightedImage_index {
+    height: 30em;
+  }
+
+  .blogPostImage_index {
+    height: 10em;
   }
 
   .blogContainer_index {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0 1em;
-    gap: 2.5em;
+    gap: 1.5em;
   }
 
   .blogPostContainer_index {
@@ -900,73 +970,6 @@ p {
 
 .header_blog {
   text-align: center;
-}
-
-/* - Blog posts - */
-
-.blogPostContainer_blog {
-  margin: 2em auto;
-  border-bottom: 1px solid lightgray;
-}
-
-.blogPostContainer_blog:hover {
-  opacity: 0.75;
-  transition: 0.1s ease-in;
-  box-shadow: 0.5px 0.5px 5px black;
-}
-
-.blogPostInfoContainer_blog {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0.5em;
-}
-
-.blogPostCategories_blog {
-  display: flex;
-  gap: 1em;
-  align-items: baseline;
-  font-size: 0.8rem;
-  padding: 0.5em 0;
-}
-
-.blogPostCategoriesTitle_blog {
-  font-weight: bold;
-}
-
-.blogPostCategory_blog:hover {
-  transition: 0.1s ease-in;
-  text-decoration: underline 1px;
-}
-
-.blogPostTitle_blog {
-  margin: 1em 0;
-  text-transform: uppercase;
-}
-
-.blogPostSubHeader_blog {
-  display: flex;
-  opacity: 0.75;
-  align-items: baseline;
-  gap: 0.5em;
-}
-
-.blogPostAuthor_blog,
-.blogPostDate_blog {
-  margin: 0;
-}
-
-.blogPostImage_blog {
-  opacity: 0.75;
-  object-fit: cover;
-  width: 100%;
-  height: 8em;
-}
-
-.blogPostContentSummary_blog {
-  padding: 0 0.5em;
-  font-style: italic;
-  font-size: 1rem;
 }
 
 /* - Older content buttons - */
@@ -1156,6 +1159,7 @@ p {
 .postTitle_blogSpecific {
   text-align: center;
   padding: 1em 0;
+  margin-bottom: 0.5em;
 }
 
 .postSubheader_blogSpecific {
@@ -1172,7 +1176,8 @@ p {
 
 .postImage_blogSpecific {
   width: 100%;
-  height: 15em;
+  min-height: 15em;
+  height: 100%;
   margin: 1em 0;
   object-fit: cover;
 }
@@ -1245,7 +1250,4 @@ p {
 
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
-  .postImage_blogSpecific {
-    height: 22.5em;
-  }
 }

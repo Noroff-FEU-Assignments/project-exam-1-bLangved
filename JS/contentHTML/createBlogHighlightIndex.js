@@ -10,14 +10,6 @@ blogPostContainer.classList.add("fade-in-down-extended");
 blogPostContainer.id = blogPost.id;
 
 
-// Create the post link and append the blog post container to it
-const postLink = document.createElement("a");
-postLink.href = `blogSpecific.html?id=${blogPost.id}`;
-postLink.append(blogPostContainer);  
-blogContainer.append(postLink);
-
-
-
 /* blogInfoContainer */
 const infoContainer = document.createElement("div");
 infoContainer.classList.add("highlightedInfoContainer_index")
@@ -26,21 +18,21 @@ blogPostContainer.append(infoContainer);
 
 /* Categories */
 const categoriesContainer = document.createElement("div");
-  categoriesContainer.classList.add("highlightedCategories_index");
+categoriesContainer.classList.add("highlightedCategories_index");
 
-  const categoriesTitle = document.createElement("div");
-  categoriesTitle.classList.add("highlightedCategoriesTitle_index");
-  categoriesTitle.innerText = "Categories:";
-  categoriesContainer.append(categoriesTitle);
+const categoriesTitle = document.createElement("div");
+categoriesTitle.classList.add("highlightedCategoriesTitle_index");
+categoriesTitle.innerText = "Categories:";
+categoriesContainer.append(categoriesTitle);
 
 
-  const categories = blogPost._embedded["wp:term"][0];
-  categories.forEach(category => {
-    const categoryElement = document.createElement("a");
-    categoryElement.classList.add("highlightedCategory_index");
-    categoryElement.href = category.link;
-    categoryElement.innerText = category.name;
-    categoriesContainer.append(categoryElement);
+const categories = blogPost._embedded["wp:term"][0];
+categories.forEach(category => {
+  const categoryElement = document.createElement("a");
+  categoryElement.classList.add("highlightedCategory_index");
+  categoryElement.href = category.link;
+  categoryElement.innerText = category.name;
+  categoriesContainer.append(categoryElement);
 });
 infoContainer.append(categoriesContainer);
 
@@ -48,7 +40,13 @@ infoContainer.append(categoriesContainer);
 const title = document.createElement("h2");
 title.classList.add("highlightedTitle_index", "medium-header");
 title.innerText = blogPost.title.rendered;
-infoContainer.append(title);
+
+// Create the post link and append title to it
+const postLinkTitle = document.createElement("a");
+postLinkTitle.href = `blogSpecific.html?id=${blogPost.id}`;
+
+postLinkTitle.append(title)
+infoContainer.append(postLinkTitle);
 
 /* sub header / author and date */
 const subHeader = document.createElement("div");
@@ -83,6 +81,11 @@ infoContainer.append(subHeader);
 /* Main image */
 const topImage = document.createElement("img");
 topImage.classList.add("highlightedImage_index");
+
+// Create the post link and append image to it
+const postLinkImage = document.createElement("a");
+postLinkImage.href = `blogSpecific.html?id=${blogPost.id}`;
+
 const imageUrl = blogPost.featured_media
 ? blogPost._embedded["wp:featuredmedia"][0].source_url
 : "";
@@ -97,7 +100,8 @@ topImage.alt = imageAlt;
 topImage.append(imageAlt)
 topImage.append(imageUrl)
 
-blogPostContainer.append(topImage);
+postLinkImage.append(topImage);
+infoContainer.append(postLinkImage);
 
 
 /* Content summary / excerpt */
@@ -105,5 +109,7 @@ const contentSummary = document.createElement("p");
 contentSummary.classList.add("highlightedContentSummary_index");
 contentSummary.innerText = blogPost.excerpt.rendered.replace(/<\/?p>/g, "");
 blogPostContainer.append(contentSummary);
+
+blogContainer.append(blogPostContainer)
 
 }
