@@ -262,6 +262,11 @@ p {
   width: 1px;
 }
 
+/* Used primarely for hamburger menu, when the menu has collapsed */
+.nonClickable-element {
+  pointer-events: none;
+}
+
 /* -- Loading animation -- */
 
 .loadingContainer {
@@ -669,20 +674,22 @@ p {
 }
 
 .mainImageContainer_index {
-  background-color: var(--clr-primary-1);
+  /* There is some different darker gradients on the background image to the far right. Using this to cover it when making the image more transparent */
+  background-color: black;
 }
 .mainImage_index {
-  min-height: 20em;
+  min-height: 12em;
+  height: 40vw;
   max-height: 20em;
   width: 100%;
   object-fit: cover;
-  opacity: 0.85;
+  opacity: 0.75;
   cursor: initial;
 }
 
 .topPageTextContainer_index {
   position: absolute;
-  top: 12em;
+  top: 16%;
   left: 60%;
   transform: translateX(-40%);
 }
@@ -699,11 +706,11 @@ p {
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
   .mainImage_index {
-    min-height: 22em;
-    max-height: 22em;
+    min-height: 20em;
+    max-height: 20em;
   }
   .topPageTextContainer_index {
-    top: 16em;
+    top: 14em;
   }
 }
 
@@ -714,7 +721,7 @@ p {
   align-items: center;
 }
 
-.topHeaderContainer_index h1,
+.topHeaderContainer_index h2,
 .lowerHeaderContainer_index h2 {
   padding: 1em 0 0.5em 0;
   margin: 0;
@@ -801,6 +808,7 @@ p {
 .blogPostAuthor_index,
 .blogPostDate_index {
   margin: 0;
+  font-size: 0.75rem;
 }
 
 /* works for both index.html, blogSpecific.html and blog.html */

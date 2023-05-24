@@ -19,28 +19,36 @@ const fullUrlPosts = baseURL + wordpressCategoryPosts + embed;
 // console.log(fullUrlPosts)
 
 async function fetchPosts(){
-    const responsPosts = await fetch(fullUrlPosts);
-    const resultsPosts = await responsPosts.json();
+  const responsPosts = await fetch(fullUrlPosts);
+  const resultsPosts = await responsPosts.json();
 
-    console.log(resultsPosts);
+  console.log(resultsPosts.length);
 
-    const postPerPage = 5;
-    let currentStartIndex = 0;
-    let currentEndIndex = postPerPage;
-    let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
+  const postPerPage = 5;
+  let currentStartIndex = 0;
+  let currentEndIndex = postPerPage;
+  let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
 
-    iterateBlogPosts(currentPosts);
+  iterateBlogPosts(currentPosts);
 
-    const moreButton = document.querySelector("#olderPostsBtn");
+  const moreButton = document.querySelector("#olderPostsBtn");
 
-    moreButton.addEventListener("click", function () {
+  // If There is more then 5 of the specific category blog posts available, then display "Show older posts - btn". If not, hide. 
+  if(resultsPosts.length > 5){
+    moreButton.style.display = "block"
+  }
+  else{
+    moreButton.style.display = "none"
+  }
 
-        if (currentStartIndex < resultsPosts.length - postPerPage) {
-          currentStartIndex += postPerPage;
-          currentEndIndex += postPerPage;
-          currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
-          iterateBlogPosts(currentPosts);
-        }
-      });
+  moreButton.addEventListener("click", function () {
+
+      if (currentStartIndex < resultsPosts.length - postPerPage) {
+        currentStartIndex += postPerPage;
+        currentEndIndex += postPerPage;
+        currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
+        iterateBlogPosts(currentPosts);
+      }
+    });
 }
 fetchPosts();

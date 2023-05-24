@@ -109,7 +109,7 @@ export function createBlogPost(result){
     if(result.modified !== result.date){
     const modifiedDate = new Date(result.modified);
     const formattedModifiedDate = formatDate(modifiedDate);
-    lastModifiedDate.innerText = "This blog post was updated at: " + formattedModifiedDate;
+    lastModifiedDate.innerText = "This blog post was updated: " + formattedModifiedDate;
     postContainer.append(lastModifiedDate);
     }
 

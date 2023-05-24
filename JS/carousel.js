@@ -1,6 +1,6 @@
 import { createHighlightPost } from "./contentHTML/createBlogHighlightIndex.js";
 import { iterateBlogPosts } from "./contentHTML/createBlogPostsIndex.js";
-
+import { scrollToElement } from "./components/scrollToLocation.js";
 
 const baseURL = "https://projectexam1.bhlweb.no/";
 const wordpressPosts = "wp-json/wp/v2/posts?per_page=10";
@@ -49,9 +49,9 @@ async function fetchPosts(){
     const nextButtonContainer = document.querySelector(".nextButtonContainer_index")
 
     prevButton.addEventListener("click", function () {
-        // Takes you to the top of the container (Where the "Recent" title is)
+        // Takes you to the top of the container (Where the "Recent" title is) - Only for mobile. Desktop view is different, so no need. 
         if(window.innerWidth < 1200){
-            window.location.href = "#" + recentPosts.id;
+            scrollToElement("#" + recentPosts.id)
         }
         // Actual eventListener
         if (currentStartIndex > 0) {
@@ -67,7 +67,7 @@ async function fetchPosts(){
     nextButton.addEventListener("click", function () {
         // Takes you to the top of the container (Where the "Recent" title is)
         if(window.innerWidth < 1200){
-            window.location.href = "#" + recentPosts.id;
+            scrollToElement("#" + recentPosts.id)
         }
         // Actual eventListener
         if (currentEndIndex < resultsPosts.length) {
