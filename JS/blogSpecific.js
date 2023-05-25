@@ -1,3 +1,4 @@
+import { showLoadingAnimation, hideLoadingAnimation } from "./components/loadingAnimation.js";
 import { createBlogPost } from "./contentHTML/createBlogSpecific.js";
 
 
@@ -12,10 +13,24 @@ const embed = "?_embed";
 
 const fullUrlPosts = baseURL + wordpressPosts + embed;
 
-async function fetchPosts(){
-    const respons = await fetch(fullUrlPosts);
-    const result = await respons.json();
+const errorMessageContainer = document.querySelector("#errorContainer");
+const errorMessage = document.querySelector("#error");
 
-    createBlogPost(result);
+showLoadingAnimation();
+async function fetchPosts(){
+    try{
+        const respons = await fetch(fullUrlPosts);
+        const result = await respons.json();
+
+        createBlogPost(result);
+    }
+    catch (error){
+        errorMessageContainer.style.display = "block";
+        errorMessage.innerText = "There was an issue loading the content. Please try again later. If the problem persists, please reach out to us through our contact form.";
+        console.error(error);
+    }
+    finally{
+        hideLoadingAnimation();
+    }
 }
 fetchPosts();

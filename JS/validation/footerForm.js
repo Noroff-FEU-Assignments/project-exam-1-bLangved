@@ -6,7 +6,7 @@ const submitButton = document.querySelector(".submitBtn-form_footer");
 const initialSection = document.querySelector(".initial-section_footer");
 const confirmationSection = document.querySelector(".confirmation-section_footer");
 const formFooter = document.querySelector(".form_footer");
-const backToTopBtn = document.querySelector(".backToTop-btn_footer");
+const soMeSection = document.querySelector(".soMe-section_footer")
 
 function validateForm() {
     
@@ -28,8 +28,8 @@ function handleButtonClick(event){
         initialSection.style.display = "none";
         confirmationSection.style.display = "block";
         formFooter.style.display = "none";
-        backToTopBtn.style.display = "block"
         footer.style.minHeight = "30em";
+        soMeSection.style.marginLeft = "initial";
     }
 }
 

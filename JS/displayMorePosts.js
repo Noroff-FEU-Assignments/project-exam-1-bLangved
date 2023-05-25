@@ -1,5 +1,5 @@
+import { showLoadingAnimation, hideLoadingAnimation } from "./components/loadingAnimation.js";
 import { iterateBlogPosts } from "./contentHTML/createBlogPostsBlog.js";
-
 
 
 const baseURL = "https://projectexam1.bhlweb.no/";
@@ -8,28 +8,41 @@ const embed = "&_embed";
 
 const fullUrlPosts = baseURL + wordpressPosts + embed;
 
+const errorMessageContainer = document.querySelector("#errorContainer");
+const errorMessage = document.querySelector("#error");
+
+showLoadingAnimation();
 async function fetchPosts(){
-    const responsPosts = await fetch(fullUrlPosts);
-    const resultsPosts = await responsPosts.json();
+  try{
+  const responsPosts = await fetch(fullUrlPosts);
+  const resultsPosts = await responsPosts.json();
 
-    const postPerPage = 10;
-    let currentStartIndex = 0;
-    let currentEndIndex = postPerPage;
-    let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
+  const postPerPage = 10;
+  let currentStartIndex = 0;
+  let currentEndIndex = postPerPage;
+  let currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
+  iterateBlogPosts(currentPosts);
 
-    iterateBlogPosts(currentPosts);
+  const moreButton = document.querySelector("#olderPostsBtn");
 
+  moreButton.addEventListener("click", function () {
 
-    const moreButton = document.querySelector("#olderPostsBtn");
+      if (currentStartIndex < resultsPosts.length - postPerPage) {
+        currentStartIndex += postPerPage;
+        currentEndIndex += postPerPage;
+        currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
+        iterateBlogPosts(currentPosts);
+      }
+    });
+  }
+  catch (error){
+    errorMessageContainer.style.display = "block";
+    errorMessage.innerText = "There was an issue loading the content. Please try again later. If the problem persists, please reach out to us through our contact form.";
+    console.error(error);
+    }
+    finally{
+        hideLoadingAnimation();
+    }
 
-    moreButton.addEventListener("click", function () {
-
-        if (currentStartIndex < resultsPosts.length - postPerPage) {
-          currentStartIndex += postPerPage;
-          currentEndIndex += postPerPage;
-          currentPosts = resultsPosts.slice(currentStartIndex, currentEndIndex);
-          iterateBlogPosts(currentPosts);
-        }
-      });
 }
 fetchPosts();

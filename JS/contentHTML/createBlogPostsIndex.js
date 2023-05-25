@@ -93,7 +93,7 @@ infoContainer.append(subHeader);
 const topImage = document.createElement("img");
 topImage.classList.add("blogPostImage_index");
 
-// Create the post link and append title to it
+// Create the post link and append image to it
 const postLinkImage = document.createElement("a");
 postLinkImage.href = `blogSpecific.html?id=${blogPosts.id}`;
 

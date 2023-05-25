@@ -126,6 +126,7 @@ li {
 input,
 textarea {
   font-size: 1rem;
+  display: block;
 }
 
 img,
@@ -149,7 +150,6 @@ button {
   height: 5em;
   width: 100%;
   border: none;
-  border-radius: 5px;
   color: black;
   font-weight: bold;
   text-transform: uppercase;
@@ -271,7 +271,7 @@ p {
 
 .loadingContainer {
   display: none;
-  height: 100%;
+  height: fit-content;
   width: 100%;
   flex-direction: column;
 }
@@ -286,13 +286,20 @@ p {
   height: 2em;
   margin: 0.5em auto auto auto;
   border: 10px solid var(--clr-primary-3);
-  border-top-color: #ffaa34;
+  border-top-color: var(--clr-primary-1);
   border-radius: 50%;
   animation: spin 0.75s ease-in-out infinite;
 }
 
 .results {
-  padding: 10px;
+  display: none;
+  margin: 1em 0;
+  padding: 1em;
+  background-color: darkred;
+  color: white;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* -- HIDE/SHOW ELEMENTS --*/
@@ -587,42 +594,24 @@ p {
 
 /* ------ FOOTER SECTION ------ */
 
-.headerSection_footer {
+.headerSection_footer,
+.lowerContainer_footer {
   width: min(80ch, 100% - 4rem);
   margin-inline: auto;
-  text-align: center;
-  padding-top: 1em;
+}
+
+.initial-section_footer {
+  margin-bottom: 2em;
 }
 
 .confirmation-section_footer {
   display: none;
 }
 
-.backToTop-btn_footer {
-  display: none;
-  margin: 0 auto;
-  width: 20em;
-  background-color: var(--clr-primary-1);
-  color: var(--clr-primary-3);
-}
-
-.form_footer {
-  display: flex;
-  flex-direction: column;
-}
 .form_footer label,
 .form_footer input,
 .form_footer button {
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
   border: none;
-  min-width: max-content;
-  max-width: 80%;
-}
-
-.form_footer label {
-  padding: 0.5em;
 }
 
 .form_footer input {
@@ -636,14 +625,36 @@ p {
     #2c2926 100%
   );
   color: var(--clr-primary-3);
-  text-align: center;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
+  margin: 1em 0;
   border-bottom: 2px solid rgb(245, 245, 245, 0.6);
-  border-radius: 0;
   outline: none;
 }
 .form_footer button {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
+  height: 4em;
+}
+
+.soMe-section_footer h3,
+.soMe-section_footer p {
+  margin: 0;
+}
+.soMe-section_footer p {
+  font-size: 1rem;
+}
+
+.soMe-Container {
+  display: flex;
+  padding: 1em 0;
+  gap: 2em;
+  width: 100%;
+}
+.soMe-Container span {
+  font-size: 1.5em;
+}
+
+.soMe-icon i {
+  color: var(--clr-primary-3);
 }
 
 .bottomSection_footer {
@@ -656,13 +667,45 @@ p {
   padding: 2em;
 }
 
+@media screen and (max-width: 768px) {
+  .form_footer label,
+  .form_footer input,
+  .form_footer button {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (min-width: 768px) {
   .form_footer label,
   .form_footer input,
   .form_footer button {
-    min-width: max-content;
-    max-width: 40rem;
+    min-width: 500px;
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .lowerContainer_footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .form_footer label,
+  .form_footer input,
+  .form_footer button {
+    min-width: 90%;
+    max-width: 90%;
+  }
+
+  .form_footer,
+  .soMe-section_footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .soMe-section_footer {
+    margin-left: 5em;
   }
 }
 
@@ -935,11 +978,6 @@ p {
 
 /* Extra large devices (Desktop, 1200px and up) */
 @media screen and (min-width: 1200px) {
-  .blogContainerHighlighted_index {
-    height: 30em;
-    border: 1px solid black;
-  }
-
   .highlightedImage_index {
     height: 30em;
   }
@@ -958,6 +996,8 @@ p {
   .blogPostContainer_index {
     border-bottom: none;
     margin-bottom: 5em;
+    /* Height is set, so btn position below does not change in case there is a small difference in height on the blog posts when toggling the carousel */
+    height: 30em;
   }
 
   .blogPostTitle_index {
@@ -975,10 +1015,9 @@ p {
 /* - Older content buttons - */
 
 .olderContent-btn,
-.backToTop-Btn {
+.scrollToTop-btn {
   width: 100%;
   margin-bottom: 2em;
-  border-radius: 0;
   border: 2px solid black;
   background: transparent;
 }
@@ -1005,7 +1044,6 @@ p {
 
 .formFieldset_contact input,
 .formFieldset_contact textarea {
-  display: block;
   width: 100%;
   padding: 0.75em;
   margin-bottom: 0.5em;
@@ -1017,7 +1055,6 @@ p {
 }
 
 .submitBtn-form_contact {
-  display: block;
   margin-top: 1.25em;
   width: 100%;
 }
@@ -1177,7 +1214,7 @@ p {
 .postImage_blogSpecific {
   width: 100%;
   min-height: 15em;
-  height: 100%;
+  max-height: 35em;
   margin: 1em 0;
   object-fit: cover;
 }

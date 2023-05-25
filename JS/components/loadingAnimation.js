@@ -1,4 +1,4 @@
-const processingForm = document.querySelector("#processingForm");
+const processingForm = document.querySelector(".loadingContainer");
 
 // Function to show the loading animation
 export function showLoadingAnimation() {

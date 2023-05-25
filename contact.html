@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/IMAGES/favicon/favicon-logo.png" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/4652493b4c.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="/IMAGES/favicon/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/CSS/style.css">
+    <script src="https://kit.fontawesome.com/4652493b4c.js" crossorigin="anonymous"></script>
 
     <!-- Hotjar Tracking Code for Project Exam 1 -->
     <script>
@@ -158,7 +158,7 @@
             </div>
 
             <!-- LOADING ANIMATION-->
-            <div class="loadingContainer" id="processingForm">
+            <div class="loadingContainer">
                 <div class="loadingText">Processing</div>
                 <div class="loadingAnimation"></div>
             </div>
@@ -223,17 +223,25 @@
                 Love having you onboard!
         </section>
 
-        <button class="backToTop-btn_footer scrollToTop-btn" aria-label="Back to top">Click here
-            to get to the
-            top</button>
+        <div class="lowerContainer_footer">
 
-
-        <form class="form_footer">
-            <label for="email">Email-address:</label>
-            <input type="email" id="email" name="email" placeholder="email@example.com" required>
-            <button class="submitBtn-form_footer" type="submit"
-                aria-label="Providing a valid Email-address enables the button" disabled>Sign up</button>
-        </form>
+            <form class="form_footer">
+                <label for="email">Email-address:</label>
+                <br>
+                <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                <button class="submitBtn-form_footer" type="submit"
+                    aria-label="Providing a valid Email-address enables the button" disabled>Sign up</button>
+            </form>
+            <div class="soMe-section_footer">
+                <h3>Follow Guitar Haven</h3>
+                <p>Want to see what we are up to? Follow us on social media!</p>
+                <div class="soMe-Container">
+                    <span class="soMe-icon soMe1"><i class="fa-brands fa-square-facebook fa-2xl"></i></span>
+                    <span class="soMe-icon soMe2"><i class="fa-brands fa-square-instagram fa-2xl"></i></span>
+                    <span class="soMe-icon soMe3"><i class="fa-brands fa-square-youtube fa-2xl"></i></span>
+                </div>
+            </div>
+        </div>
 
         <div class="bottomSection_footer">
             <h3>The website is operated by ©bhlweb.no</h3>
@@ -243,10 +251,8 @@
 
     <script src="JS/components/hamburgerMenu.js" defer></script>
     <script src="JS/components/activeSite.js" defer></script>
-    <script type="module" src="/JS/components/scrollToLocation.js"></script>
     <script type="module" src="JS/validation/footerForm.js"></script>
 
-    <script type="module" src="JS/components/loadingAnimation.js"></script>
     <script type="module" src="JS/validation/contactForm.js"></script>
 </body>
 

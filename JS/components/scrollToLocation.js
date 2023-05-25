@@ -1,6 +1,9 @@
 const backToTop = document.querySelector(".scrollToTop-btn");
 
-backToTop.addEventListener("click", scrollToTop);
+
+if (backToTop) {
+  backToTop.addEventListener("click", scrollToTop);
+}
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
