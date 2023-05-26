@@ -7,6 +7,7 @@ const initialSection = document.querySelector(".initial-section_footer");
 const confirmationSection = document.querySelector(".confirmation-section_footer");
 const formFooter = document.querySelector(".form_footer");
 const soMeSection = document.querySelector(".soMe-section_footer")
+const errorMessage = document.querySelector(".errorMessage_footer")
 
 function validateForm() {
     
@@ -15,8 +16,12 @@ function validateForm() {
     
     if (!submitButton.disabled) {
         submitButton.classList.add("buttonEnabled");
-    } else {
+        errorMessage.style.display = "none";
+    } 
+    else {
         submitButton.classList.remove("buttonEnabled");
+        errorMessage.style.display = "block";
+        errorMessage.innerText = "Please enter a valid email address";
     }
     return !submitButton.disabled;
 }
@@ -24,7 +29,7 @@ function validateForm() {
 function handleButtonClick(event){
     event.preventDefault();
 
-    if(validateForm){
+    if(validateForm()){
         initialSection.style.display = "none";
         confirmationSection.style.display = "block";
         formFooter.style.display = "none";
@@ -32,7 +37,6 @@ function handleButtonClick(event){
         soMeSection.style.marginLeft = "initial";
     }
 }
-
 
 email.addEventListener("input", validateForm);
 submitButton.addEventListener("click", handleButtonClick);

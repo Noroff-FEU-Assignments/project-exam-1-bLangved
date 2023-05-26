@@ -96,6 +96,8 @@ aside {
 
 .ul_aside li {
   padding: 1em 0.5em;
+  margin-bottom: 5px;
+  background-color: var(--clr-primary-3);
 }
 
 .ul_aside li:hover {
@@ -300,6 +302,13 @@ p {
   font-style: italic;
   font-size: 18px;
   font-weight: bold;
+}
+
+/* Error message in footer */
+.errorMessage_footer {
+  display: none;
+  color: red;
+  margin-bottom: 1em;
 }
 
 /* -- HIDE/SHOW ELEMENTS --*/
@@ -612,6 +621,8 @@ p {
 .form_footer input,
 .form_footer button {
   border: none;
+  /* Safari curves the input border by default */
+  border-radius: 0;
 }
 
 .form_footer input {
@@ -651,6 +662,7 @@ p {
 }
 .soMe-Container span {
   font-size: 1.5em;
+  cursor: pointer;
 }
 
 .soMe-icon i {
@@ -1154,11 +1166,22 @@ p {
 }
 
 .personImage {
-  background: url(/IMAGES/about/person-portrait.jpeg) no-repeat;
-  background-size: cover;
   border-radius: 50%;
   border: 2px solid rgb(70, 70, 70);
   margin: 0 auto;
+}
+
+.personImage-1 {
+  background: url(/IMAGES/about/person-portrait_1.jpeg) no-repeat;
+  background-size: cover;
+}
+.personImage-2 {
+  background: url(/IMAGES/about/person-portrait_2.jpeg) no-repeat;
+  background-size: cover;
+}
+.personImage-3 {
+  background: url(/IMAGES/about/person-portrait_3.jpeg) no-repeat;
+  background-size: cover;
 }
 
 .personName {
@@ -1215,11 +1238,29 @@ p {
   width: 100%;
   min-height: 15em;
   max-height: 35em;
-  margin: 1em 0;
+  margin-top: 1em;
   object-fit: cover;
 }
 
 .paragraph_blogSpecific {
+  margin: 0;
+  font-style: italic;
+}
+
+.paragraphSubTitle_blogSpecific {
+  font-size: 1.4rem;
+  font-style: initial;
+}
+
+.paragraphListElement_blogSpecific {
+  list-style: circle;
+  margin-left: 1em;
+}
+
+.paragraphImgElement_blogSpecific {
+  height: 15em;
+  object-fit: cover;
+  border: 2px solid lightgray;
 }
 
 .postLastModifiedDate_blogSpecific {

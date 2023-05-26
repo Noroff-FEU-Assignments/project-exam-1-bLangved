@@ -39,7 +39,12 @@ infoContainer.append(categoriesContainer);
 /* Title */
 const title = document.createElement("h2");
 title.classList.add("highlightedTitle_index", "medium-header");
-title.innerText = blogPost.title.rendered;
+
+ // Since the rendered text from the REST API is containing html tags, this solution sanitze the html tags from the string itself. 
+ const tempTitle = document.createElement("div");
+ tempTitle.innerHTML = blogPost.title.rendered; 
+ const contentTitle = tempTitle.textContent;
+ title.innerText = contentTitle;
 
 // Create the post link and append title to it
 const postLinkTitle = document.createElement("a");
@@ -105,10 +110,13 @@ infoContainer.append(postLinkImage);
 
 
 /* Content summary / excerpt */
-const contentSummary = document.createElement("p");
-contentSummary.classList.add("highlightedContentSummary_index");
-contentSummary.innerText = blogPost.excerpt.rendered.replace(/<\/?p>/g, "");
-blogPostContainer.append(contentSummary);
+const summary = document.createElement("p");
+summary.classList.add("highlightedContentSummary_index");
+const tempSummary = document.createElement("div");
+tempSummary.innerHTML = blogPost.excerpt.rendered; 
+const contentSummary = tempSummary.textContent;
+summary.innerText = contentSummary;
+blogPostContainer.append(summary);
 
 blogContainer.append(blogPostContainer)
 

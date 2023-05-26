@@ -40,7 +40,12 @@ infoContainer.append(categoriesContainer);
 /* Title */
 const title = document.createElement("h2");
 title.classList.add("blogPostTitle_blog", "medium-header");
-title.innerText = blogPosts.title.rendered;
+
+ // Since the rendered text from the REST API is containing html tags, this solution sanitze the html tags from the string itself. 
+ const tempTitle = document.createElement("div");
+ tempTitle.innerHTML = blogPosts.title.rendered; 
+ const contentTitle = tempTitle.textContent;
+ title.innerText = contentTitle;
 
 // Create the post link and append title to it
 const postLinkTitle = document.createElement("a");
@@ -106,14 +111,17 @@ topImage.append(imageUrl)
 postLinkImage.append(topImage);
 infoContainer.append(postLinkImage);
 
-/* Content summary / excerpt */
-const contentSummary = document.createElement("p");
-contentSummary.classList.add("blogPostContentSummary_blog");
 
-let excerptText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
-contentSummary.innerText = excerptText.length > 250 ? excerptText.substring(0, 250) + "..." : excerptText;
-// contentSummary.innerText = blogPosts.excerpt.rendered.replace(/<\/?p>/g, "");
-blogPostContainer.append(contentSummary);
+/* Content summary / excerpt */
+const summary = document.createElement("p");
+summary.classList.add("blogPostContentSummary_blog");
+const tempSummary = document.createElement("div");
+tempSummary.innerHTML = blogPosts.excerpt.rendered; 
+const contentSummary = tempSummary.textContent;
+// Shortens the text to only 250 characters
+const shortenedSummary = contentSummary.length > 250 ? contentSummary.substring(0, 250) + "..." : contentSummary;
+summary.innerText = shortenedSummary;
+blogPostContainer.append(summary);
 
 blogContainer.append(blogPostContainer)
 
