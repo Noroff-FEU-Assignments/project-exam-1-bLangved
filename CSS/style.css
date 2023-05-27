@@ -87,11 +87,13 @@ aside {
 .section_aside {
   margin-top: 2.5em;
 }
+.section_aside h2,
 .section_aside h3 {
   background: var(--clr-primary-1);
   color: var(--clr-primary-3);
   padding: 0.5em;
   margin: 0;
+  font-size: 1.125rem;
 }
 
 .ul_aside li {
