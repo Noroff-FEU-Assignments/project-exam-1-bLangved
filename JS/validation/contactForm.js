@@ -17,6 +17,8 @@ const message = document.querySelector("#messageForm");
 const messageError = document.querySelector("#messageError");
 const messageSucsess = document.querySelector("#messageSucsess")
 
+const topSection = document.querySelector(".topSection_contact");
+const processText = document.querySelector(".processingText_contact")
 const successSection = document.querySelector(".formSucsess_contact");
 const submitButton = document.querySelector(".submitBtn-form_contact");
 
@@ -130,13 +132,21 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     const isValidationPassed = validateForm(event);
     if (isValidationPassed) {
+        processText.style.display = "block";
         formSection.style.display = "none";
+        topSection.style.display = "none";
         showLoadingAnimation();
         // Since there is no data sent, this happens instantaneous. In a real world scenario, this would probably take a small amount of time. Therefor a loading animation.  
         setTimeout(() => {
+            processText.style.display = "none";
             successSection.style.display = "flex";
             hideLoadingAnimation();
-        }, 2000);
+            
+            // Redirection to index.html after 5 seconds
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 5000);
+        }, 2500);
     }
 });
 

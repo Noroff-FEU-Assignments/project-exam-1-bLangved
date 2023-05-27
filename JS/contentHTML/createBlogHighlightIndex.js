@@ -1,5 +1,5 @@
-import {formatDate} from "../formatting/date.js"
-
+import { formatDate } from "../formatting/date.js"
+import { categoryIdCheck } from "../validation/categoryIdCheck.js";
 
 export function createHighlightPost(blogPost){
 
@@ -25,15 +25,21 @@ categoriesTitle.classList.add("highlightedCategoriesTitle_index");
 categoriesTitle.innerText = "Categories:";
 categoriesContainer.append(categoriesTitle);
 
-
 const categories = blogPost._embedded["wp:term"][0];
 categories.forEach(category => {
   const categoryElement = document.createElement("a");
   categoryElement.classList.add("highlightedCategory_index");
-  categoryElement.href = category.link;
+
+  const categoryRef = category.link.split("/category/");
+  if (categoryRef.length > 1) {
+    const categoryString = categoryRef[1];
+    categoryElement.href = `categories.html?id=${categoryIdCheck(categoryString)}`;
+  }
   categoryElement.innerText = category.name;
   categoriesContainer.append(categoryElement);
 });
+
+
 infoContainer.append(categoriesContainer);
 
 /* Title */

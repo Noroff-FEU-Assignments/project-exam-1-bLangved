@@ -109,6 +109,7 @@ export function createBlogPost(result){
       list.classList.add("paragraphListElement_blogSpecific");
     });
   }
+  // Currently not filling entire width of page, but works (the img tags are being nested inside figure tags)
   const imgTag = paragraph.querySelectorAll("img");
   // Checking for all img tags 
   if (imgTag.length > 0) {
@@ -152,7 +153,6 @@ postContainer.append(paragraph);
         const categoryString = categoryRef[1];
         categoryElement.href = `categories.html?id=${categoryIdCheck(categoryString)}`;
       }
-      
       categoryElement.innerText = category.name;
       categoriesContainer.append(categoryElement);
     });

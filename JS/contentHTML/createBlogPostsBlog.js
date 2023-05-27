@@ -1,4 +1,5 @@
-import {formatDate} from "../formatting/date.js"
+import { formatDate } from "../formatting/date.js";
+import { categoryIdCheck } from "../validation/categoryIdCheck.js";
 
 
 /* Creating HTML for blog posts containers */
@@ -30,10 +31,17 @@ const categories = blogPosts._embedded["wp:term"][0];
 categories.forEach(category => {
   const categoryElement = document.createElement("a");
   categoryElement.classList.add("blogPostCategory_blog");
-  categoryElement.href = category.link;
+
+  const categoryRef = category.link.split("/category/");
+  if (categoryRef.length > 1) {
+    const categoryString = categoryRef[1];
+    categoryElement.href = `categories.html?id=${categoryIdCheck(categoryString)}`;
+  }
   categoryElement.innerText = category.name;
   categoriesContainer.append(categoryElement);
 });
+
+
 infoContainer.append(categoriesContainer);
 
 

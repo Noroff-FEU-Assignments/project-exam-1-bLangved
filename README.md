@@ -60,12 +60,12 @@ Note that this is an exam, and therefore tutor support will be limited as per th
 4. Use the GitHub repo created by GitHub Classroom for your files and deploy to Netlify (CHECK)
 5. Build your website using HTML, CSS and JavaScript making a call to the WordPress REST API to fetch your data. (CHECK)
 6. Install Hotjar on your website. (CHECK)
-7. Ask users to test your website, and adjust based on their feedback and any insights from Hotjar.
+7. Ask users to test your website, and adjust based on their feedback and any insights from Hotjar. (CHECK)
 8. Write a report documenting your project (template provided in this repository).
 9. Submit your report as a PDF and a link to both your Netlify deployment and your GitHub repo.
 
 ## Level 2 Process (optional)
 
-1. You can try adding a sort, filter, or search to the blog posts page allowing users to find the blog post more easily that they’re looking for.
+1. You can try adding a sort, filter, or search to the blog posts page allowing users to find the blog post more easily that they’re looking for. (Kind of CHECK)
 2. Post the data from the contact form to WordPress so you have the details saved.
 3. Allow users to submit comments on a blog post, and post this data to WordPress
