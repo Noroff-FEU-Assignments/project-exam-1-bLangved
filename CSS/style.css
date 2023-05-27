@@ -264,6 +264,7 @@ p {
   padding: 0;
   position: absolute;
   width: 1px;
+  color: white;
 }
 
 /* Used primarely for hamburger menu, when the menu has collapsed */
@@ -812,8 +813,8 @@ p {
   align-items: center;
 }
 
-.topHeaderContainer_index h2,
-.lowerHeaderContainer_index h2 {
+.topHeaderContainer_index h1,
+.lowerHeaderContainer_index h1 {
   padding: 1em 0 0.5em 0;
   margin: 0;
   font-style: italic;
