@@ -814,7 +814,7 @@ p {
 }
 
 .topHeaderContainer_index h1,
-.lowerHeaderContainer_index h1 {
+.lowerHeaderContainer_index h2 {
   padding: 1em 0 0.5em 0;
   margin: 0;
   font-style: italic;
