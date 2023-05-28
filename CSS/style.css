@@ -1094,11 +1094,13 @@ p {
 
 .processingText_contact {
   display: none;
+  text-align: center;
 }
 
 .formSucsess_contact {
   display: none;
   margin: auto;
+  text-align: center;
   width: 100%;
   height: fit-content;
   align-items: center;

@@ -1,5 +1,5 @@
 import { showLoadingAnimation, hideLoadingAnimation } from "../components/loadingAnimation.js";
-import { checkLength, validateEmail} from "./inputCheck.js"
+import { checkLength, validateEmail} from "./inputCheck.js";
 
 const formSection = document.querySelector("#formSection")
 const form = document.querySelector("#contactForm");
@@ -132,6 +132,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     const isValidationPassed = validateForm(event);
     if (isValidationPassed) {
+        window.scrollTo(0, 0);
         processText.style.display = "block";
         formSection.style.display = "none";
         topSection.style.display = "none";
@@ -149,11 +150,5 @@ form.addEventListener("submit", (event) => {
         }, 2500);
     }
 });
-
-
-
-/* --- VALIDATION --- */
-checkLength(value, length);
-validateEmail(email);
 
 
